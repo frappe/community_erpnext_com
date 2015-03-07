@@ -1,0 +1,24 @@
+{% macro service_cloud(p) %}
+{% for key in ("App Development", "ERP Implementation", "Customization", "Integration") -%}
+	{%- if p.get(key.replace(" ", "_").lower()) -%}
+	<span class="label label-info">{{ key }}</span> {% endif %}
+{%- endfor %}
+{% endmacro %}
+
+{% macro partner_type(p) %}
+{% if p.partner_category in ("Development Partner", "Implementation Partner") %}
+<span class="label label-warning"><i class="icon-star"></i> {{ p.partner_category }}</span>
+{% endif %}
+{% endmacro %}
+
+{% macro stars(p) %}
+<div class="pull-right" title="Average Rating: {{ frappe.utils.flt(p.average_rating, 2) }}">
+	{% for i in range(0, frappe.utils.cint(p.average_rating)) %}
+	<span><i class="icon-star"></i></span>
+	{% endfor %}
+	{% for i in range(0, 5 - frappe.utils.cint(p.average_rating)) %}
+	<span><i class="icon-star-empty"></i></span>
+	{% endfor %}
+	<span class="text-muted small">({{ frappe.utils.flt(p.average_rating, 2) }} | {{ p.completed_jobs or 0 }} jobs)</span>
+</div>
+{% endmacro %}

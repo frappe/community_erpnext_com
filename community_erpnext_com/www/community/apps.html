@@ -1,0 +1,44 @@
+{% from "templates/includes/form_macros.html" import make_select %}
+
+<div class="row">
+	<div class="col-md-4">
+		{{ make_select(klass="filter",
+			options=[{"label":"All Categories", "value":""}] + categories,
+			attributes={"data-key": "application_category"}
+		) }}
+	</div>
+	<div class="col-md-4">
+		<input type="text" placeholder="Search" class="form-control filter"
+			data-key="application_name">
+	</div>
+</div>
+{% if frappe.form_dict %}
+<div style="margin-top: 5px;">
+	<a href="{{ pathname }}" class="text-muted small">
+		<i class="icon-remove"></i> Clear Filters</a>
+</div>
+{% endif %}
+<hr>
+<div class="no-shadow">
+	{% for app in apps %}
+	<div class="media">
+		<a class="pull-left"
+			href="/apps/{{ app.page_name }}">
+			<img class="media-object app-icon" src="{{ app.icon }}">
+		</a>
+		<div class="media-body">
+			<a href="/apps/{{ app.page_name }}">
+			<h4 class="media-heading">{{ app.application_name }}</h4>
+		</a>
+		<p>{{ app.introduction }}</p>
+		<p class="text-muted">Publisher: {{ app.publisher }}</p>
+		</div>
+	</div>
+	<hr>
+	{% endfor %}
+	<div>
+		<a href="/list-your-app" class="btn btn-default">
+			Share your App
+		</a>
+	</div>
+</div>

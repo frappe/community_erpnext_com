@@ -1,0 +1,19 @@
+{
+ "address_line1": "D/324 Neelkanth Business Park", 
+ "address_line2": "Vidyavihar West", 
+ "address_title": "Frappe Technologies Pvt Ltd", 
+ "city": "Mumbai", 
+ "country": "India", 
+ "creation": "2014-04-08 14:03:59.088550", 
+ "docstatus": 0, 
+ "doctype": "Contact Us Settings", 
+ "forward_to_email": "sales@frappe.io", 
+ "introduction": "Have a question or a comment or a criticism? Write in, we would love to hear from you and we promise we will get back asap.<br>", 
+ "modified": "2014-06-09 14:55:03.691276", 
+ "modified_by": "Administrator", 
+ "name": "Contact Us Settings", 
+ "owner": "Administrator", 
+ "pincode": "400086", 
+ "query_options": "Hello\nSales\nSupport\nReseller\nDonate", 
+ "state": "Maharashtra"
+}

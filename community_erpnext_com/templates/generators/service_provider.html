@@ -1,0 +1,51 @@
+{% block content %}
+{%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
+<div class="partner-content" itemscope itemtype="http://schema.org/Organization">
+	<div class="row">
+		<div class="col-md-4">
+			{% if logo -%}
+			<img itemprop="brand" src="{{ logo }}" class="partner-logo no-shadow"
+				alt="{{ partner_name }}" title="{{ partner_name }}" />
+			<br><br>
+			{%- endif %}
+			<p><span class="label label-default">{{ country }}</span></p>
+			<p>{{ partner_type(doc) }}</p>
+			<address>
+				{% if partner_website -%}<p><a href="{{ partner_website }}"
+					target="_blank">{{ partner_website }}</a></p>{%- endif %}
+				{% if partner_address -%}<p itemprop="address">{{ partner_address | markdown }}</p>{%- endif %}
+				{% if phone -%}<p itemprop="telephone">{{ phone }}</p>{%- endif %}
+				{% if email -%}<p itemprop="email"><span class="icon-envelope"></span> {{ email }}</p>{%- endif %}
+			</address>
+			<p>{{ service_cloud(doc) }}</p>
+		</div>
+		<div class="col-md-8">
+			<div class="clearfix">
+				{{ stars(doc) }}
+			</div>
+			<div class="well">{{ introduction[:300] }}</div>
+			<hr>
+			<h4>Completed Jobs</h4>
+			{% if jobs %}
+				<ul class="list-group">
+				{% for job in jobs %}
+				<li class="list-group-item">
+					<div>
+						<a href="/community/jobs/{{ job.page_name }}">
+							{{ job.job_title }}</a>
+					</div>
+					<div class="text-muted small">
+						{{ frappe.format_date(job.creation) }}</div>
+				</li>
+				{% endfor %}
+				</ul>
+			{% else %}
+			<div class="alert alert-info">No Jobs Completed on the Community Portal</div>
+			{% endif %}
+			<hr>
+			<p><h4>Capabilities</h4></p>
+			<p>{{ description }}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

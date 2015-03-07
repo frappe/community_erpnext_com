@@ -1,0 +1,8 @@
+[
+	{"title": "Service Providers", "name": "community/service-providers"},
+	{"title": "Jobs", "name": "community/jobs"},
+	{"title": "Apps", "name": "community/apps"},
+	{"title": "My Account", "name": "community/manage"},
+	{"title": "FAQ", "name": "community/faq"},
+	{"title": "Terms", "name": "community/terms"}
+]

@@ -1,0 +1,30 @@
+{% from "templates/includes/form_macros.html" import make_select %}
+
+<div class="row partner-header">
+	<div class="col-sm-4">
+		{{ make_select(klass="filter", options=[{"label":"Global", "value":""}] + country_list,
+			attributes={"data-key": "country"}) }}
+	</div>
+	<div class="col-sm-4">
+		{{ make_select(klass="filter",
+			options=[{"label":"All Services", "value":""}] + services,
+			attributes={"data-key": "service"}) }}
+	</div>
+	{% if is_jobs and frappe.user != "Guest" %}
+	<div class="col-sm-4">
+		{{ make_select(klass="filter",
+			options=[
+				{"label":"All Jobs", "value":""},
+				{"label":"My Jobs", "value":"my-jobs"},
+				{"label":"My Bids", "value":"my-bids"}],
+			attributes={"data-key": "jobs"}) }}
+	</div>
+	{% endif %}
+</div>
+{% if frappe.form_dict %}
+<div style="margin-top: 5px;">
+	<a href="{{ pathname }}" class="text-muted small">
+		<i class="icon-remove"></i> Clear Filters</a>
+</div>
+{% endif %}
+<hr>

@@ -1,0 +1,65 @@
+{
+ "autoname": "field:publisher_name", 
+ "creation": "2014-02-17 15:58:36", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "fields": [
+  {
+   "fieldname": "publisher_name", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Publisher Name", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "publisher_logo", 
+   "fieldtype": "Attach", 
+   "in_list_view": 1, 
+   "label": "Publisher Logo", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "location", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Location", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "description", 
+   "fieldtype": "Text", 
+   "in_list_view": 1, 
+   "label": "Description", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "page_name", 
+   "fieldtype": "Read Only", 
+   "in_list_view": 1, 
+   "label": "Page Name", 
+   "permlevel": 0
+  }
+ ], 
+ "icon": "icon-book", 
+ "idx": 1, 
+ "modified": "2014-10-14 16:52:30.182883", 
+ "modified_by": "Administrator", 
+ "module": "ERPNext Community Portal", 
+ "name": "Frappe Publisher", 
+ "owner": "Administrator", 
+ "permissions": [
+  {
+   "create": 1, 
+   "delete": 1, 
+   "export": 1, 
+   "permlevel": 0, 
+   "read": 1, 
+   "report": 1, 
+   "role": "System Manager", 
+   "submit": 0, 
+   "write": 1
+  }
+ ], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

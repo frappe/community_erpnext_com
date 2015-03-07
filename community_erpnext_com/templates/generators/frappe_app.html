@@ -1,0 +1,53 @@
+{% block header %}{{ title }}{% endblock %}
+
+{% block style %}
+.testimonial-avatar {
+	background-size: cover;
+	background-position: center center;
+}
+.app-icon {
+	border-radius: 5px;
+	width: 1.1em;
+	height: 1.1em;
+	display: inline-block;
+	margin-top: -0.2em;
+}
+{% endblock %}
+
+{% block content %}
+<div class="row" style="margin-bottom: 15px;">
+	<div class="col-md-12">
+		<div class="pull-left">
+			<img src="{{ doc.icon }}" class="app-icon" style="width: 36px; height: 36px;">
+		</div>
+		<div class="pull-right">
+			{% if doc.source_link -%}
+				<a href="{{ doc.source_link }}" target="_blank" class="btn btn-default">
+					<i class="icon icon-github"></i> Github</a>
+			{%- endif %}
+			{% if doc.demo_link -%}
+				<a href="{{ doc.demo_link }}" target="_blank" class="btn btn-default">
+					<i class="icon icon-play"></i> Demo</a>
+			{%- endif %}
+			{% if doc.cloud_link -%}
+				<a href="{{ doc.cloud_link }}" target="_blank" class="btn btn-default">
+					<i class="icon icon-cloud"></i> Start</a>
+			{%- endif %}
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<h4>{{ doc.headline or "" }}</h4>
+<p class="text-muted small">Publisher: {{ doc.publisher }}</p>
+
+<p>{{ doc.description }}</p>
+{% if doc.screenshot_1 %}
+<hr>
+<h4>Screenshot</h4>
+<div>
+	<img src="{{ doc.screenshot_1 }}" class="img-responsive">
+</div>
+{% endif %}
+
+{% endblock %}

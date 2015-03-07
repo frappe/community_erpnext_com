@@ -1,0 +1,21 @@
+{%- from "templates/includes/community_macros.html" import service_cloud, partner_type -%}
+
+<div class="row partner-row">
+	<div class="col-md-3">
+		{% if logo -%}
+		<a href="/partners/{{ page_name }}">
+			<img itemprop="brand" src="{{ logo }}" class="partner-logo no-shadow"
+				alt="{{ partner_name }}" title="{{ partner_name }}" />
+		</a>
+		{%- endif %}
+	</div>
+	<div class="col-md-9">
+		<a href="/partners/{{ page_name }}">
+			<h4>{{ partner_name }}</h4>
+		</a>
+		<p><span class="label label-default">{{ country }}</span></p>
+		<p>{{ partner_type(doc) }}</p>
+		<p>{{ introduction }}</p>
+		<p>{{ service_cloud(doc) }}</p>
+	</div>
+</div>

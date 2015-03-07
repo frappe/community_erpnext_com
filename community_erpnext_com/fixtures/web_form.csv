@@ -1,0 +1,463 @@
+"Data Import Template"
+"Table:","Web Form"
+""
+""
+"Notes:"
+"Please do not change the template headings."
+"First data column must be blank."
+"If you are uploading new records, leave the ""name"" (ID) column blank."
+"If you are uploading new records, ""Naming Series"" becomes mandatory, if present."
+"Only mandatory fields are necessary for new records. You can delete non-mandatory columns if you wish."
+"For updating, you can update only selective columns."
+"You can only upload upto 5000 records in one go. (may be less in some cases)"
+""
+"DocType:","Web Form","","","","","","","","","","","","","","","~","Web Form Field","web_form_fields","","","","","","","",""
+"Column Labels:","ID","Title","Page Name","Select DocType","Published","Login Required","Allow Edit","Allow Multiple","Allow Delete","Allow Comments","Introduction","Success Message","Success URL","Web Page Link Text","Breadcrumbs","","ID","Label","Fieldname","Fieldtype","Mandatory","Read Only","Hidden","Options","Description","Default"
+"Column Name:","name","title","page_name","doc_type","published","login_required","allow_edit","allow_multiple","allow_delete","allow_comments","introduction_text","success_message","success_url","web_page_link_text","breadcrumbs","~","name","label","fieldname","fieldtype","reqd","read_only","hidden","options","description","default"
+"Mandatory:","Yes","Yes","Yes","Yes","No","No","No","No","No","No","No","No","No","No","No","","Yes","Yes","No","No","No","No","No","No","No","No"
+"Type:","Data (text)","Data","Data","Link","Check","Check","Check","Check","Check","Check","Text","Text","Data","Data","Small Text","","Data","Data","Select","Select","Check","Check","Check","Text","Text","Data"
+"Info:","","","","Valid DocType","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","","","","","","","Leave blank for new records","","","One of: Attach, Check, Data, Date, Datetime, HTML, Select, Text","0 or 1","0 or 1","0 or 1","","",""
+"Start entering data below this line"
+"","""join-us""","Join Us","join-us","Frappe Job Applicant",1,1,1,0,0,0,"Thanks for your interest! Please take a few moments to fill this form. The better you tell us who you are, the better chances are that we want to have you in our team.","Thanks for applying. If we find your profile interesting, we will get back to you. In the mean-time you can always edit your application.","/join-us","","[{""title"":""Company"", ""name"":""webnotes""}, {""title"":""Jobs"", ""name"":""webnotes/jobs""}]","","""1d495385811a2be8c102997fddb24d4a2f3f7dfa4d67692ebd45ae70""","Full Name","full_name","Data",1,0,0,"","Not what your friends call you",""
+"","","","","","","","","","","","","","","","","","""9b95091588041b3ce97b08dca11287a07034ec4f552e89fdf160215a""","Email Id","email_id","Data",1,0,0,"","An email id you check frequently",""
+"","","","","","","","","","","","","","","","","","""5ac6fb4c3ce6454e49a87bb67da22a0a45e4010b0f211913a6f3e0da""","Linked In Profile","linked_in_profile","Data",0,0,0,"","Want to share a resume? Link to a document via Dropbox or other similar file sharing tools",""
+"","","","","","","","","","","","","","","","","","""404582f5c677cc228de2dd5ff22b34b1906b816fb052821dbf300bd7""","GitHub Profile","github_profile","Data",0,0,0,"","Already on GitHub / Bitbucket / Dribbble? Do you blog? Yay! Share your profile.",""
+"","","","","","","","","","","","","","","","","","""959e4a5c4a489b1c2c687aca36c8874955172e30cc2407b40f53c3a8""","What are you passionate about?","interests","Text",1,0,0,"","Tell us about your interests, your influences, what do you do in your free time.",""
+"","","","","","","","","","","","","","","","","","""ba7820c1425807a6053904948d7c4d73a5d9469a14f82dc71f24c4a4""","What have you done till now?","projects","Text",1,0,0,"","Your past is the best pointer to your future. Share your achievements, like what is the toughest thing you have done? What is your superpower? Any pet projects?",""
+"","","","","","","","","","","","","","","","","","""968eb54920e0dda930587a9e889f1f3ca2bfebfba257242dc65db208""","Why Us","why_us","Text",1,0,0,"","Yes we know everyone needs a job, but why us? Go through our website and find what interests you. Why do you think working with us is the best decision you will ever make.",""
+"","""list-your-app""","List Your App","list-your-app","Frappe App",1,1,1,1,1,0,"Add your app details","","/list-your-app","","[{""title"":""Community"", ""name"":""community""}, {""title"":""My Account"", ""name"":""community/manage""}]","","""3327b808735ca49f5d0c71893d370293274a70c2557408eaaf55f38d""","Application Name","application_name","Data",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""eece38039b3001c1edeefe75cd60c438669d554fb18531e0545c4c5b""","Application Category","application_category","Select",1,"","","Website
+Industry
+Country Specific
+Accounting
+Integration
+General
+Tools","",""
+"","","","","","","","","","","","","","","","","","""83f317edab8a792ce07cb225602a845a45fb75716b4fd2b946da6f5a""","Publisher","publisher","Data",1,"","","","",""
+"","","","","","","","","","","","","","","","","","""06f7b1ad49a27a81a113abfee356dcf9e8eb6ab4180bc72516eab47d""","Repository Link","source_link","Data",1,0,0,"","GitHub / Bitbucket etc link to the repository",""
+"","","","","","","","","","","","","","","","","","""eed4ed39da8cfdf848cd7f9143fe52421d4cfae89f27ddc5f90935a0""","Icon","icon","Attach",1,0,0,"","Application Icon",""
+"","","","","","","","","","","","","","","","","","""c91f7d162d9ce06c85eb7b6fa5f656a62011d1c90ac47af3c06d406c""","Introduction","introduction","Text",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""2657e15f6845558baa1324b0bad93ac241b9a50b510d5247caef095d""","Description","description","Text",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""ef16767e75ff1a5faac1b22b64c5dc30ff2ceff6431e7a1204885b8e""","Screenshot","screenshot_1","Attach","","","","","",""
+"","","","","","","","","","","","","","","","","","""81c98597f45d19560f16b056625d46926663db7ad1242092e47182eb""","Demo Link","demo_link","Data",0,0,0,"","Link to app demo (if exists)",""
+"","""become-a-partner""","Become A Partner","become-a-partner","Frappe Partner",1,1,1,0,0,0,"Add your profile to the Frappe Partner Listing Page!","Thanks! Your profile will be up when it is verified. You can always edit your profile.","/become-a-partner","View Listing Page","[{""title"":""Community"", ""name"":""community""}, {""title"": ""My Account"", ""name"":""community/manage""}]","","""c65f6bd4b8af71fb47a574b09646d29d5491bffd7e16cb7a51f5e9e5""","Partner Name","partner_name","Data",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""a53056cf991a8966dad04db7a90b3b17c9ee149ca309f3a2d557bcdd""","Logo","logo","Attach",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""3eed3430f70e7dbfeb54eb732a0c2cf7d9b143f7ba161b5ca695a0a8""","Organization Type","organization_type","Select",0,0,0,"Systems Integrator
+IT Consultancy
+Freelancer","",""
+"","","","","","","","","","","","","","","","","","""1a588580e18a9c884be30ada0824fd312fd560b38b973fd568f5902f""","Country","country","Select",1,0,0,"Afghanistan
+Albania
+Algeria
+Andorra
+Angola
+Antigua & Deps
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Central African Rep
+Chad
+Chile
+China
+Colombia
+Comoros
+Congo
+Congo {Democratic Rep}
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+East Timor
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Fiji
+Finland
+France
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland {Republic}
+Israel
+Italy
+Ivory Coast
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea North
+Korea South
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Macedonia
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar, {Burma}
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russian Federation
+Rwanda
+St Kitts & Nevis
+St Lucia
+Saint Vincent & the Grenadines
+Samoa
+San Marino
+Sao Tome & Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Sudan
+Spain
+Sri Lanka
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Togo
+Tonga
+Trinidad & Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+United States
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe","",""
+"","","","","","","","","","","","","","","","","","""5b3e70b7ea9f0a83414ed31ab7c4ffae7ef18a2f3c69213c2b35607c""","Partner Website","partner_website","Data",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""d56b537ffe19714d1249d7dd6d4fc4c18fda352783fd1a549a49dd5a""","Email","email","Data",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""d4df1a0a27e649adc0f37735f86e4dee74d1b8e3140a6a58302632d5""","Phone","phone","Data",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""59a8fd83f4c2bd045aaedb37955055930bd4f6ad994fc195972c2ee7""","Partner Address","partner_address","Text",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""04ad359ecce4bc26f8ed2abf614379675a690d6c1273597f363694bc""","Introduction","introduction","Text",1,0,0,"","Will appear in listing",""
+"","","","","","","","","","","","","","","","","","""35e5b7bd35aa12c86bf32a1f46e559b9192f9aa189aa9b62d2857eff""","Description","description","Text",0,0,0,"","Detailed description of your services. Will appear on your page",""
+"","","","","","","","","","","","","","","","","","""99461c1292a10e95afc6129072e6479202d83e5f26ab5852f42b328a""","Services Offered","","HTML",0,0,0,"<h3>Services Offered</h3>","",""
+"","","","","","","","","","","","","","","","","","""e5f6194e32cf815ea465c7d63352280c3b6d30aa502d0f9fe51265e5""","App Development","app_development","Check",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""b4dc4d22c89cffad6024f40b3bb8a78a5f5625bea00c7da681ade6a9""","ERP Implementation","erp_implementation","Check",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""92c313aaf335f8213edc24478da236e236c336f29f8a97ea1c8b42d2""","Integration","integration","Check",0,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""dc762370bc66836b3c62c1e689611a3e15842e68919405f0b3334ee5""","Customization","customization","Check",0,0,0,"","Print Formats, Reports etc",""
+"","""post-jobs""","Post Jobs","post-jobs","Frappe Job",1,1,1,1,1,0,"Post a customization, integration, ERP implemenation, App development or website development job and get requests from services providers.","Thank you, you can edit your job settings anytime","/post-jobs","View Job Posting and Manage Bids","[{""title"":""Community"", ""name"":""community""}, {""title"":""My Account"", ""name"":""/community/manage""}]","","""1ae91561ee99de47621c66cfe31ae1ee978287d8ae96ca886a0c35fd""","Job Title","job_title","Data",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""55105aeaa4be3eab997e55c5e6dcaba07c3ecd733b5d5680e822e441""","Company Name","company_name","Data",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""e9eb4b15c92902ba65199df440e97641bfac64c126bb19743acfbd05""","Need It By","need_it_by","Date",1,0,0,"","",""
+"","","","","","","","","","","","","","","","","","""37a3fcdfbe1717a8c0c04a801fe3ef659c65d2d03c10c45230ac10f7""","Country","country","Select",1,0,0,"Afghanistan
+Albania
+Algeria
+Andorra
+Angola
+Antigua & Deps
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Central African Rep
+Chad
+Chile
+China
+Colombia
+Comoros
+Congo
+Congo {Democratic Rep}
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+East Timor
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Fiji
+Finland
+France
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland {Republic}
+Israel
+Italy
+Ivory Coast
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea North
+Korea South
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Macedonia
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar, {Burma}
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russian Federation
+Rwanda
+St Kitts & Nevis
+St Lucia
+Saint Vincent & the Grenadines
+Samoa
+San Marino
+Sao Tome & Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Sudan
+Spain
+Sri Lanka
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Togo
+Tonga
+Trinidad & Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+United States
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe","",""
+"","","","","","","","","","","","","","","","","","""0bd927b2aa21013380cf5e7dc1d955571f8fbefaf696ec5e87430674""","Job Detail","job_detail","Text",1,0,0,"","Please be as clear as possible with your requirements. If you want to add pictures, documents please add links. If this is a large project, create a new GitHub repository and add a README.md file with your requirements.",""
+"","","","","","","","","","","","","","","","","","""42f7d6c8c115b2ac0afd6ee06bca50c76352ae4e95b66f003e0375a4""","Job Type","service","Select",0,0,0,"Customization
+ERP Implementation
+Integration
+App Development
+Website Development
+Other","",""
+"","","","","","","","","","","","","","","","","","""3f0f4c1d578716fca9334ba43baca30cb5c3f1b9286efa0dc3cf7804""","Delivery","delivery","Select",1,0,0,"Online
+In Person","",""
+"","","","","","","","","","","","","","","","","","""7c912372f9ba52be92ab14c8fe0a92e48c8a823beeae60ee5b1167ec""","Approx Budget (US$)","budget","Data",0,0,0,"","",""

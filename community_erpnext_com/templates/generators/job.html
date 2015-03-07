@@ -1,0 +1,171 @@
+{% block content %}
+{% if frappe.user != "Guest" -%}
+<div>
+	{% if bid and owner != frappe.user %}
+	<a class="btn btn-success" href="/bid/{{ bid }}">
+		<i class="icon-edit"></i> View Bid</a>
+	{% elif owner == frappe.user and status == "Open" %}
+	<a class="btn btn-default" href="#manage">
+			<i class="icon-legal"></i> Manage Bids</a>
+	<a class="btn btn-default" href="post-jobs?name={{ name }}" style="margin-left: 10px;">
+			<i class="icon-edit"></i> Edit Job</a>
+	<a class="btn btn-default btn-action" style="margin-left: 10px;"
+		data-action="delete">
+		<i class="icon-remove"></i> Delete Job</a>
+	{% elif owner == frappe.user and status == "Assigned" %}
+	<button class="btn btn-default btn-success btn-complete">
+		<i class="icon-ok"></i> Mark as Complete</button>
+	<a class="btn btn-default" href="bid/{{ bid }}" style="margin-left: 10px;">
+		<i class="icon-edit"></i> View Accepted Bid</a>
+
+	<button class="btn btn-default btn-action" style="margin-left: 10px;"
+		data-action="close" data-reload=1>
+		<i class="icon-remove"></i> Close Job</button>
+	{% elif status == "Open" %}
+	<button class="btn btn-success btn-action" data-action="bid" data-reload=1>
+		<i class="icon-legal"></i> Bid for this Job</button>
+	{% elif status == "Completed" %}
+	<div class="alert alert-success">This job is completed!</div>
+	{% endif %}
+</div>
+<div class="well hide get-feedback" style="margin-top: 15px;">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div style="" class="form-group">
+	            <label for="select-1">Partner Rating</label>
+	            <select class="form-control" id="feedback-rating">
+	                <option value="5">5</option>
+	                <option value="4" selected>4</option>
+	                <option value="3">3</option>
+	                <option value="2">2</option>
+	                <option value="1">1</option>
+	            </select>
+	            <p class="help-block">1 - Poor, 5 - Awesome</p>
+	        </div>
+	        <div style="position: static;" class="form-group">
+	            <label for="input-text-1">Feedback</label>
+	            <textarea class="form-control" id="feedback-text" placeholder="Describe your experince working with this partner"></textarea>
+	        </div>
+	    </div>
+	</div>
+	<button class="btn btn-success btn-action" data-action="complete" data-reload=1>
+		<i class="icon-ok"></i> Mark as Complete</button>
+</div>
+<hr>
+{%- endif %}
+{% if feedback %}
+<div class="alert alert-info">Feedback: "{{ feedback }}" ({{ rating }} / 5)</div>
+{% endif %}
+<div class="job-posting" itemscope itemtype="http://schema.org/JobPosting">
+	<div class="row">
+		<div class="col-md-12">
+			<p><img src="{{ avatar }}" class="avatar avatar-small"> {{ fullname }}</p>
+			<div class="text-muted small">{{ frappe.format_date(creation) }}</div>
+			<p><span class="label label-default">{{ country }}</span>
+				<span class="label label-info">{{ service }}</span>
+				<span class="label label-{{ 'success' if status in ('Open', 'Assigned') else 'default' }}">{{ status }}</span>
+			</p>
+			<hr>
+			{% if frappe_partner %}
+			<p><b><i class="icon-ok"></i> Assigned To:</b> <a href="/community/service-providers/{{ frappe_partner_route }}">{{ frappe_partner_name }}</a></p>
+			<hr>
+			{% endif %}
+			<p><b>Company:</b> {{ company_name }}</p>
+			<p><b>Delivery Type:</b> {{ delivery }}
+			<p><b>Approx Budget (US$):</b> {{ budget }}
+			<p itemprop="description">{{ job_detail|markdown }}</p>
+			{% if frappe.user!="Guest" %}
+				{% if bid %}
+				<p><b>Email Id:</b> {{ owner }}</p>
+				{% elif owner == frappe.user %}
+					<br>
+					<h4><a name="manage"></a>Manage Bids</h4>
+					<hr>
+					{% if status == "Open" %}
+					<p class="text-muted small">Click on a bid to accept it</p>
+					{% endif %}
+					{% if bids %}
+						<ul class="list-group">
+							{% for b in bids %}
+							<li class="list-group-item">
+								<div class="pull-right">
+									<span class="label label-{{ 'success' if b.status=='Accepted' else 'default' }}">{{ b.status }}</span>
+								</div>
+								<div><a href="/bid/{{ b.name }}">
+									{{ b.frappe_partner_title }}</a>
+								</div>
+								<div class="text-muted small">
+									{{ frappe.format_date(b.creation) }}
+								</div>
+							</li>
+							{% endfor %}
+						</ul>
+						{% else %}
+						<div class="alert alert-info">No Bids Yet</div>
+					{% endif %}
+				{% endif %}
+			{% else %}
+			<hr>
+			<div class="alert alert-success">Please <a href="/login?redirect-to={{ pathname }}">register / login</a>
+				to bid for this job.
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<hr>
+
+<h4><i class="icon-comments text-muted"></i> Discussion</h4>
+<br>
+{% include 'templates/includes/comments/comments.html' %}
+
+{% endblock %}
+
+{% block script %}
+<script>
+frappe.ready(function() {
+	console.log("ready 2");
+	$(".btn-complete").on("click", function() {
+		$(".get-feedback").toggleClass("hide");
+		$(this).toggleClass("btn-success");
+	});
+
+	$(".btn-action").on("click", function() {
+
+		var args = {
+				job: "{{ name }}"
+			},
+			action = $(this).attr("data-action"),
+			reload = $(this).attr("data-reload");
+
+		if(action=="complete") {
+			args.feedback = $("#feedback-text").val();
+			args.rating = $("#feedback-rating").val();
+			if(!args.feedback) {
+				frappe.msgprint("Please leave some feedback!");
+				return;
+			}
+		}
+
+		frappe.call({
+			type:"POST",
+			btn: $(this),
+			method:"frappe_io.frappe_apps.doctype.frappe_job.frappe_job."
+				+ action,
+			args: args,
+			callback: function(r) {
+				if(!r.exc) {
+					if(reload) {
+						location.reload();
+					} else {
+						location.href = "/community/jobs";
+					}
+				}
+			}
+		});
+	});
+
+
+});
+</script>
+{% endblock %}

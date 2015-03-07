@@ -1,0 +1,49 @@
+<!-- title: Service Providers -->
+
+{% include "templates/includes/select_header.html" %}
+{%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
+<div>
+	{% if not partners %}
+	<div class="alert alert-info">
+		No Partners found for the matching criteria.
+	</div>
+	{% endif %}
+	{% for p in partners %}
+	<div class="row partner-row">
+		<div class="col-md-3">
+			{% if p.logo -%}
+			<a href="/community/service-providers/{{ p.page_name }}">
+				<img itemprop="brand" src="{{ p.logo }}" class="partner-logo no-shadow"
+					alt="{{ p.partner_name }}" title="{{ p.partner_name }}" style="max-width: 80%" />
+			</a>
+			{%- endif %}
+		</div>
+		<div class="col-md-9">
+			{{ stars(p) }}
+			<a href="/community/service-providers/{{ p.page_name }}">
+				<h4>{{ p.partner_name }}</h4>
+			</a>
+			<p><span class="label label-default">{{ p.country }}</span></p>
+			<p>{{ partner_type(p) }}</p>
+			<p>{{ p.introduction }}</p>
+			<p>{{ service_cloud(p) }}</p>
+		</div>
+	</div>
+	<hr>
+	{% endfor %}
+</div>
+{% if partners|len==50 %}
+<div class="alert alert-info">Use filters to show more jobs</div>
+{% endif %}
+
+<div class="row">
+	<div class="col-md-9 col-md-offset-3">
+		<a href="/become-a-partner" class="btn btn-default">
+			Register as a Service Provider</a>
+	 </div>
+</div>
+<style>
+	.partner-logo {
+		margin-top: 5px;
+	}
+</style>
