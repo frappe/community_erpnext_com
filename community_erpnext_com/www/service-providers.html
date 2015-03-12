@@ -4,9 +4,9 @@
 {%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
 <div>
 	{% if not partners %}
-	<div class="alert alert-info">
+	<p class="text-muted">
 		No Partners found for the matching criteria.
-	</div>
+    </p>
 	{% endif %}
 	{% for p in partners %}
 	<div class="row partner-row">
@@ -33,7 +33,7 @@
 	{% endfor %}
 </div>
 {% if partners|len==50 %}
-<div class="alert alert-info">Use filters to show more jobs</div>
+<p class="text-muted">Use filters to show more jobs</p>
 {% endif %}
 
 <div class="row">

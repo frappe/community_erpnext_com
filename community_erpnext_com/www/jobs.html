@@ -5,9 +5,9 @@
 
 <div>
 	{% if not jobs %}
-	<div class="alert alert-info">
+	<p class="text-muted">
 		No Jobs found for the matching criteria.
-	</div>
+	</p>
 	{% endif %}
 	{% for j in jobs %}
 	<div class="row partner-row">
@@ -43,7 +43,7 @@
 	<hr>
 	{% endfor %}
 	{% if jobs|len==50 %}
-	<div class="alert alert-info">Use filters to show more jobs</div>
+	<p class="text-muted">Use filters to show more jobs</p>
 	{% endif %}
 </div>
 <div>

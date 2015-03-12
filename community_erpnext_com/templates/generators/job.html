@@ -54,7 +54,7 @@
 <hr>
 {%- endif %}
 {% if feedback %}
-<div class="alert alert-info">Feedback: "{{ feedback }}" ({{ rating }} / 5)</div>
+<p class="text-muted">Feedback: "{{ feedback }}" ({{ rating }} / 5)</p>
 {% endif %}
 <div class="job-posting" itemscope itemtype="http://schema.org/JobPosting">
 	<div class="row">
@@ -101,7 +101,7 @@
 							{% endfor %}
 						</ul>
 						{% else %}
-						<div class="alert alert-info">No Bids Yet</div>
+						<p class="text-muted">No Bids Yet</p>
 					{% endif %}
 				{% endif %}
 			{% else %}

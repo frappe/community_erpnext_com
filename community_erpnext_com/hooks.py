@@ -19,10 +19,14 @@ hide_in_installer = True
 # web_include_css = "/assets/community_erpnext_com/css/community_erpnext_com.css"
 # web_include_js = "/assets/community_erpnext_com/js/community_erpnext_com.js"
 
+required_apps = ["frappe_theme"]
+
 website_context = {
-	"nav_brand": "ERPNext Community",
-	"nav_links": [
-		("About", "/community/faq")
+	"brand_html": "ERPNext Community",
+	"top_bar_items": [
+		{"label": "Jobs", "url":"/jobs", "right": 1},
+		{"label": "Service Providers", "url":"/service-providers", "right": 1},
+		{"label": "About", "url":"/about", "right": 1}
 	]
 }
 
