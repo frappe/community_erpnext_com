@@ -3,7 +3,7 @@
 <!-- jinja -->
 
 {% if frappe.user == "Guest" %}
-<div class="alert alert-info">
+<div class="text-muted">
 	Please <a href="/login?redirect-to=/community/manage" class="btn btn-small btn-primary">Login</a> to manage your account.
 </div>
 {% else %}

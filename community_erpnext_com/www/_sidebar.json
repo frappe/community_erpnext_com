@@ -1,8 +1,8 @@
 [
-	{"title": "Service Providers", "name": "community/service-providers"},
-	{"title": "Jobs", "name": "community/jobs"},
-	{"title": "Apps", "name": "community/apps"},
-	{"title": "My Account", "name": "community/manage"},
-	{"title": "FAQ", "name": "community/faq"},
-	{"title": "Terms", "name": "community/terms"}
+	{"title": "Service Providers", "name": "/service-providers"},
+	{"title": "Jobs", "name": "/jobs"},
+	{"title": "Apps", "name": "/apps"},
+	{"title": "My Account", "name": "/manage"},
+	{"title": "FAQ", "name": "/faq"},
+	{"title": "Terms", "name": "/terms"}
 ]
