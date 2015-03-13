@@ -167,7 +167,5 @@ def weekly_digest():
 </table>
 """
 
-	print frappe.render_template(template, {"jobs": new_jobs})
-
 	frappe.sendmail(recipients = recipients, subject="New Jobs This Week on Frappe.io",
 		message = frappe.render_template(template, {"jobs": new_jobs}), bulk=True)
