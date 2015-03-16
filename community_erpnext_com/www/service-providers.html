@@ -12,7 +12,7 @@
 	<div class="row partner-row">
 		<div class="col-md-3">
 			{% if p.logo -%}
-			<a href="/community/service-providers/{{ p.page_name }}">
+			<a class="no-decoration" href="/service-providers/{{ p.page_name }}">
 				<img itemprop="brand" src="{{ p.logo }}" class="partner-logo no-shadow"
 					alt="{{ p.partner_name }}" title="{{ p.partner_name }}" style="max-width: 80%" />
 			</a>
@@ -20,13 +20,13 @@
 		</div>
 		<div class="col-md-9">
 			{{ stars(p) }}
-			<a href="/community/service-providers/{{ p.page_name }}">
+			<a class="no-decoration" href="/service-providers/{{ p.page_name }}">
 				<h4>{{ p.partner_name }}</h4>
 			</a>
 			<p><span class="label label-default">{{ p.country }}</span></p>
 			<p>{{ partner_type(p) }}</p>
 			<p>{{ p.introduction }}</p>
-			<p>{{ service_cloud(p) }}</p>
+			<!-- <p>{{ service_cloud(p) }}</p> -->
 		</div>
 	</div>
 	<hr>

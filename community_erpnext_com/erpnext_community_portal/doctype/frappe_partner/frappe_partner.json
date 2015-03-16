@@ -146,7 +146,7 @@
    "permlevel": 0
   }, 
   {
-   "default": "community/service-providers", 
+   "default": "service-providers", 
    "fieldname": "parent_website_route", 
    "fieldtype": "Read Only", 
    "label": "Parent Website Route", 
@@ -156,7 +156,7 @@
  ], 
  "icon": "icon-user", 
  "idx": 1, 
- "modified": "2014-12-15 14:12:50.567730", 
+ "modified": "2015-03-16 13:22:24.003564", 
  "modified_by": "Administrator", 
  "module": "ERPNext Community Portal", 
  "name": "Frappe Partner", 

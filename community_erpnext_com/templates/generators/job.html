@@ -67,7 +67,7 @@
 			</p>
 			<hr>
 			{% if frappe_partner %}
-			<p><b><i class="icon-ok"></i> Assigned To:</b> <a href="/community/service-providers/{{ frappe_partner_route }}">{{ frappe_partner_name }}</a></p>
+			<p><b><i class="icon-ok"></i> Assigned To:</b> <a href="/service-providers/{{ frappe_partner_route }}">{{ frappe_partner_name }}</a></p>
 			<hr>
 			{% endif %}
 			<p><b>Company:</b> {{ company_name }}</p>
@@ -150,7 +150,7 @@ frappe.ready(function() {
 		frappe.call({
 			type:"POST",
 			btn: $(this),
-			method:"frappe_io.frappe_apps.doctype.frappe_job.frappe_job."
+			method:"community_erpnext_com.erpnext_community_portal.doctype.frappe_job.frappe_job."
 				+ action,
 			args: args,
 			callback: function(r) {
@@ -158,7 +158,7 @@ frappe.ready(function() {
 					if(reload) {
 						location.reload();
 					} else {
-						location.href = "/community/jobs";
+						location.href = "/jobs";
 					}
 				}
 			}

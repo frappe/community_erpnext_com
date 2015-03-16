@@ -27,8 +27,15 @@ website_context = {
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
 		{"label": "About", "url":"/about", "right": 1}
-	]
+	],
 }
+
+my_account_context = [
+	{"label": "My Bids", "url": "/jobs?jobs=my-bids"},
+	{"label": "Jobs by me", "url": "/jobs?jobs=my-jobs"},
+	{"label": "Edit Service Provider Listing", "url": "/become-a-partner"},
+	{"label": "Edit Jobs", "url": "/post-jobs"}
+]
 
 # Home Pages
 # ----------
@@ -39,7 +46,7 @@ home_page = "index"
 web_include_css = "/assets/frappe/css/hljs.css"
 web_include_js = "/assets/frappe/js/lib/highlight.pack.js"
 
-website_generators = ["Frappe App", "Frappe Partner", "Frappe Job", "Frappe Job Bid"]
+website_generators = ["Frappe Partner", "Frappe Job", "Frappe Job Bid"]
 
 fixtures = [
 	"Contact Us Settings",
@@ -48,8 +55,8 @@ fixtures = [
 ]
 
 scheduler_events = {
-	"daily": ["community_erpnext_com.frappe_apps.doctype.frappe_job.frappe_job.expire_jobs"],
-	"weekly": ["community_erpnext_com.frappe_apps.doctype.frappe_job.frappe_job.weekly_digest"]
+	"daily": ["community_erpnext_com.erpnext_community_portal.doctype.frappe_job.frappe_job.expire_jobs"],
+	"weekly": ["community_erpnext_com.erpnext_community_portal.doctype.frappe_job.frappe_job.weekly_digest"]
 }
 
 # website user home page (by Role)

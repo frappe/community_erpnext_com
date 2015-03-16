@@ -51,4 +51,4 @@ class FrappePartner(WebsiteGenerator):
 			{"title":"Service Providers", "name": "community/service-providers"}]
 
 def get_list_item(doc):
-	return frappe.get_template("frappe_apps/doctype/frappe_partner/list_item.html").render(doc)
+	return frappe.get_template("erpnext_community_portal/doctype/frappe_partner/list_item.html").render(doc)

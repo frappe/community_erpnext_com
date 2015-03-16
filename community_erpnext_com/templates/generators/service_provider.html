@@ -17,13 +17,14 @@
 				{% if phone -%}<p itemprop="telephone">{{ phone }}</p>{%- endif %}
 				{% if email -%}<p itemprop="email"><span class="icon-envelope"></span> {{ email }}</p>{%- endif %}
 			</address>
-			<p>{{ service_cloud(doc) }}</p>
+			<!-- <p>{{ service_cloud(doc) }}</p> -->
 		</div>
 		<div class="col-md-8">
 			<div class="clearfix">
 				{{ stars(doc) }}
 			</div>
-			<div class="well">{{ introduction[:300] }}</div>
+            <br>
+			<div>{{ introduction[:300] }}</div>
 			<hr>
 			<h4>Completed Jobs</h4>
 			{% if jobs %}
@@ -31,7 +32,7 @@
 				{% for job in jobs %}
 				<li class="list-group-item">
 					<div>
-						<a href="/community/jobs/{{ job.page_name }}">
+						<a href="/jobs/{{ job.page_name }}">
 							{{ job.job_title }}</a>
 					</div>
 					<div class="text-muted small">

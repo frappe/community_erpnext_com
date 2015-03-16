@@ -62,7 +62,7 @@ frappe.ready(function() {
 		frappe.call({
 			type: "POST",
 			btn: $(this),
-			method: "frappe_io.frappe_apps.doctype.frappe_job_bid.frappe_job_bid.accept",
+			method: "community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.accept",
 			args: {bid: "{{ name }}"},
 			callback: function(r) {
 				if(!r.exc) {
@@ -76,11 +76,11 @@ frappe.ready(function() {
 		frappe.call({
 			type: "POST",
 			btn: $(this),
-			method: "frappe_io.frappe_apps.doctype.frappe_job_bid.frappe_job_bid.delete",
+			method: "community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.delete",
 			args: {bid: "{{ name }}"},
 			callback: function(r) {
 				if(!r.exc) {
-					location.href = "/community/jobs?jobs=my-bids";
+					location.href = "/jobs?jobs=my-bids";
 				}
 			}
 		})
