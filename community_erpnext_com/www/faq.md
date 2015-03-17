@@ -77,7 +77,7 @@ No, we (Frappe Technologies) do not do any paid development. All our energy is u
 
 #### 10. I want to setup my own ERPNext cloud, can you help me?
 
-Yes, we are in the process of generalizing our tools that we use to power FrappeClould.com so that they can be used by companies willing to provide their own ERPNext Cloud. Stay tuned for that on our developer forum where we will be posting it.
+Yes, we are in the process of generalizing our tools that we use to power erpnext.com so that they can be used by companies willing to provide their own ERPNext Cloud. Stay tuned for that on our developer forum where we will be posting it.
 
 ---
 

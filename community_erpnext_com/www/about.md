@@ -33,5 +33,5 @@ The Frappe Community Portal is a project that aims to connect users who are look
 
 If you want to report any issues or flag a service provider / user, please email us at support@frappe.io or
 
-<a href="/contact" class="btn btn-default">Get in Touch</a>
+<a href="https://about.frappe.io/#contact" class="btn btn-default">Get in Touch</a>
 

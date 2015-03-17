@@ -2,6 +2,5 @@ service-providers
 jobs
 apps
 faq
-terms
 contribute
-manage
+about
