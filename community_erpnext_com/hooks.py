@@ -26,7 +26,7 @@ website_context = {
 	"top_bar_items": [
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
-		{"label": "About", "url":"/about", "right": 1}
+		{"label": "Terms", "url":"/terms", "right": 1}
 	],
 }
 

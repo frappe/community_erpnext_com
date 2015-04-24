@@ -3,4 +3,4 @@ jobs
 apps
 faq
 contribute
-about
+terms

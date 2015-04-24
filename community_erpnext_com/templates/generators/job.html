@@ -59,9 +59,13 @@
 <div class="job-posting" itemscope itemtype="http://schema.org/JobPosting">
 	<div class="row">
 		<div class="col-md-12">
-			<p><img src="{{ avatar }}" class="avatar avatar-small"> {{ fullname }}</p>
+			<p>
+				<div class="avatar avatar-small"><img src="{{ avatar }}"></div>
+				{{ fullname }}
+			</p>
 			<div class="text-muted small">{{ frappe.format_date(creation) }}</div>
-			<p><span class="label label-default">{{ country }}</span>
+			<p>
+				<span class="label label-default">{{ country }}</span>
 				<span class="label label-info">{{ service }}</span>
 				<span class="label label-{{ 'success' if status in ('Open', 'Assigned') else 'default' }}">{{ status }}</span>
 			</p>
@@ -78,14 +82,14 @@
 				{% if bid %}
 				<p><b>Email Id:</b> {{ owner }}</p>
 				{% elif owner == frappe.user %}
-					<br>
-					<h4><a name="manage"></a>Manage Bids</h4>
 					<hr>
-					{% if status == "Open" %}
-					<p class="text-muted small">Click on a bid to accept it</p>
-					{% endif %}
+					<h4 id="manage">Manage Bids
+						{% if status == "Open" and bids %}
+						<em class="text-extra-muted small" style="margin-left: 3px;">click on a bid to accept it</em>
+						{% endif %}
+					</h4>
 					{% if bids %}
-						<ul class="list-group">
+						<ul class="list-group" style="margin-bottom: 0px;">
 							{% for b in bids %}
 							<li class="list-group-item">
 								<div class="pull-right">
@@ -101,12 +105,12 @@
 							{% endfor %}
 						</ul>
 						{% else %}
-						<p class="text-muted">No Bids Yet</p>
+						<p class="text-muted" style="margin-bottom: 0px;">No Bids Yet</p>
 					{% endif %}
 				{% endif %}
 			{% else %}
 			<hr>
-			<div class="alert alert-success">Please <a href="/login?redirect-to={{ pathname }}">register / login</a>
+			<div>Please <a href="/login?redirect-to={{ pathname }}">register / login</a>
 				to bid for this job.
 			</div>
 			{% endif %}
@@ -115,8 +119,7 @@
 </div>
 <hr>
 
-<h4><i class="icon-comments text-muted"></i> Discussion</h4>
-<br>
+<h4>Discussion</h4>
 {% include 'templates/includes/comments/comments.html' %}
 
 {% endblock %}
@@ -124,7 +127,6 @@
 {% block script %}
 <script>
 frappe.ready(function() {
-	console.log("ready 2");
 	$(".btn-complete").on("click", function() {
 		$(".get-feedback").toggleClass("hide");
 		$(this).toggleClass("btn-success");
