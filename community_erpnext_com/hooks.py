@@ -22,7 +22,7 @@ hide_in_installer = True
 required_apps = ["frappe_theme"]
 
 website_context = {
-	"brand_html": "ERPNext Community",
+	"brand_html": "<img class='navbar-icon' src='/assets/frappe_theme/img/erpnext-icon.svg' />ERPNext Community",
 	"top_bar_items": [
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
@@ -138,4 +138,3 @@ scheduler_events = {
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "community_erpnext_com.event.get_events"
 # }
-
