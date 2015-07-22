@@ -22,12 +22,13 @@ hide_in_installer = True
 required_apps = ["frappe_theme"]
 
 website_context = {
-	"brand_html": "<img class='navbar-icon' src='/assets/frappe_theme/img/erpnext-icon.svg' />ERPNext Community",
+	"brand_html": "<img class='navbar-icon' src='/assets/frappe_theme/img/erp-icon.svg' />ERPNext Community",
 	"top_bar_items": [
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
 		{"label": "Terms", "url":"/terms", "right": 1}
 	],
+	"favicon": "/assets/frappe_theme/img/favicon.ico"
 }
 
 my_account_context = [
