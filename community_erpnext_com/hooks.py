@@ -35,7 +35,8 @@ my_account_context = [
 	{"label": "My Bids", "url": "/jobs?jobs=my-bids"},
 	{"label": "Jobs by me", "url": "/jobs?jobs=my-jobs"},
 	{"label": "Edit Service Provider Listing", "url": "/become-a-partner"},
-	{"label": "Edit Jobs", "url": "/post-jobs"}
+	{"label": "Edit Jobs", "url": "/post-jobs"},
+	{"label": "Become a Verified Service Provider", "url": "https://about.frappe.io#contact", "target": "_blank"}
 ]
 
 # Home Pages

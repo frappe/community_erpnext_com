@@ -1,11 +1,20 @@
-<!-- title: Service Providers -->
-
 {% include "templates/includes/select_header.html" %}
 {%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
 <div>
+    {% if not frappe.form_dict.country %}
+    <h4>Select Country</h4>
+    <div class="countries row">
+        {% for country in countries %}
+        <div class="col-md-4 col-sm-6">
+            <a href="/service-providers?country={{ country }}">{{ country }}</a>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    {% endif %}
 	{% if not partners %}
 	<p class="text-muted">
-		No Partners found for the matching criteria.
+		No Service Providers found for the matching criteria.
     </p>
 	{% endif %}
 	{% for p in partners %}
@@ -38,8 +47,15 @@
 			<p class="text-muted">Use filters to see more service providers</p>
 		{%- endif %}
 
-		<a href="/become-a-partner" class="btn btn-primary" style="margin-top: 10px;">
+        <p>
+            <a href="/become-a-partner" class="btn btn-primary" style="margin-top: 10px;">
 				Register as a Service Provider</a>
+        </p>
+        {% if not frappe.form_dict.country %}
+        <p><a href="https://about.frappe.io/#contact" target="_blank">
+            Become a verified service provider</a></p>
+    <p>
+    {% endif %}
 	 </div>
 </div>
 <style>

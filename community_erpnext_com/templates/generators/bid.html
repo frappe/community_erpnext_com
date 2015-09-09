@@ -3,13 +3,13 @@
 {% if frappe.user in (owner, job.owner) and status in ("Accepted", "Open") %}
 <div >
 	{% if job.owner == frappe.user and status=="Open" %}
-	<button class="btn btn-success btn-accept">
-		<i class="icon-ok-sign"></i> Accept Bid</button>
+	<button class="btn btn-primary btn-accept">
+		Accept Bid</button>
 	{% elif owner == frappe.user and status=="Open" %}
 	<a class="btn btn-default btn-delete">
-		<i class="icon-remove"></i> Withdraw Bid</a>
+		Withdraw Bid</a>
 	{% elif job.owner == frappe.user and status=="Accepted" %}
-	<div class="alert alert-success">You have accepted this bid. To mark this job as completed, <a href="{{ job.get_route() }}">go back to the Job Page</a></div>
+	<div class="alert alert-success">You have accepted this bid. To mark this job as completed, <a href="/{{ job.get_route() }}">go back to the Job Page</a></div>
 	{% endif %}
 </div>
 <hr>

@@ -2,28 +2,28 @@
 {% if frappe.user != "Guest" -%}
 <div>
 	{% if bid and owner != frappe.user %}
-	<a class="btn btn-success" href="/bid/{{ bid }}">
-		<i class="icon-edit"></i> View Bid</a>
+	<a class="btn btn-primary" href="/bid/{{ bid }}">
+		View Bid</a>
 	{% elif owner == frappe.user and status == "Open" %}
 	<a class="btn btn-default" href="#manage">
-			<i class="icon-legal"></i> Manage Bids</a>
+		Manage Bids</a>
 	<a class="btn btn-default" href="post-jobs?name={{ name }}" style="margin-left: 10px;">
-			<i class="icon-edit"></i> Edit Job</a>
+		Edit Job</a>
 	<a class="btn btn-default btn-action" style="margin-left: 10px;"
 		data-action="delete">
-		<i class="icon-remove"></i> Delete Job</a>
+		Delete Job</a>
 	{% elif owner == frappe.user and status == "Assigned" %}
 	<button class="btn btn-default btn-success btn-complete">
-		<i class="icon-ok"></i> Mark as Complete</button>
-	<a class="btn btn-default" href="bid/{{ bid }}" style="margin-left: 10px;">
-		<i class="icon-edit"></i> View Accepted Bid</a>
+		 Mark as Complete</button>
+	<a class="btn btn-default" href="/bid/{{ bid }}" style="margin-left: 10px;">
+		View Accepted Bid</a>
 
 	<button class="btn btn-default btn-action" style="margin-left: 10px;"
 		data-action="close" data-reload=1>
-		<i class="icon-remove"></i> Close Job</button>
+		Close Job</button>
 	{% elif status == "Open" %}
 	<button class="btn btn-success btn-action" data-action="bid" data-reload=1>
-		<i class="icon-legal"></i> Bid for this Job</button>
+		Bid for this Job</button>
 	{% elif status == "Completed" %}
 	<div class="alert alert-success">This job is completed!</div>
 	{% endif %}
@@ -48,8 +48,8 @@
 	        </div>
 	    </div>
 	</div>
-	<button class="btn btn-success btn-action" data-action="complete" data-reload=1>
-		<i class="icon-ok"></i> Mark as Complete</button>
+	<button class="btn btn-primary btn-action" data-action="complete" data-reload=1>
+		Mark as Complete</button>
 </div>
 <hr>
 {%- endif %}

@@ -2,14 +2,16 @@
 
 <div class="row partner-header">
 	<div class="col-sm-4">
-		{{ make_select(css_class="filter", options=[{"label":"Global", "value": frappe.form_dict.country}] + country_list,
-			attributes={"data-key": "country"}) }}
-	</div>
-	<div class="col-sm-4">
 		{{ make_select(css_class="filter",
-			options=[{"label":"All Services", "value":""}] + services,
-			attributes={"data-key": "service"}) }}
+            options=[{"label":"Global"}] + country_list,
+            attributes={"data-key": "country"},
+            value=frappe.form_dict.country) }}
 	</div>
+    <!-- <div class="col-sm-4">
+        {{ make_select(css_class="filter",
+            options=[{"label":"All Services", "value":""}] + services,
+            attributes={"data-key": "service"}) }}
+    </div> -->
 	{% if is_jobs and frappe.user != "Guest" %}
 	<div class="col-sm-4">
 		{{ make_select(css_class="filter",
