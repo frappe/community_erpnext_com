@@ -6,8 +6,8 @@
 {% endmacro %}
 
 {% macro partner_type(p) %}
-{% if p.partner_category in ("Development Partner", "Implementation Partner") %}
-<span class="label label-warning"><i class="icon-star"></i> {{ p.partner_category }}</span>
+{% if p.partner_category != "Unverified" %}
+<span class="label label-success"><i class="icon-star"></i> {{ p.partner_category }}</span>
 {% endif %}
 {% endmacro %}
 
