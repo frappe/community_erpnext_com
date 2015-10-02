@@ -10,7 +10,7 @@ ERPNext is an Open Source ERP application that helps Small to Medium Sized busin
 
 #### 2. I want to sell ERPNext Service to my customers. How can I do that?
 
-Before you sell anything to anyone, you must be completely convinced that it is the right tool for you to promote. After all, it is your reputation at stake. Before you sell any ERPNext service, we recommend that you evaluate ERPNext very minutely yourself and the best way to do it is self-implementation. Start using ERPNext for billing, customer support, CRM, quoting your customers. Even if you do not want to use it in production, use it as a test. Once, and if, you are convinced of the application, you should demo it to your customers. Nothing sells better than confidence, so its best to be confident before yo sell.
+Before you sell anything to anyone, you must be completely convinced that it is the right tool for you to promote. After all, it is your reputation at stake. Before you sell any ERPNext service, we recommend that you evaluate ERPNext very minutely yourself and the best way to do it is self-implementation. Start using ERPNext for billing, customer support, CRM, quoting your customers. Even if you do not want to use it in production, use it as a test. Once, and if, you are convinced of the application, you should demo it to your customers. Nothing sells better than confidence, so its best to be confident before you sell.
 
 > Disclosure: We use ERPNext extensively in our own organization too!
 
@@ -18,7 +18,7 @@ Before you sell anything to anyone, you must be completely convinced that it is 
 
 #### 3. Will I get support during self-implementation?
 
-You do not need to pay for self implmenetation, you can either use the 30-day trial at [erpnext.com](https://erpnext.com) or use the [Virtual Machine](https://erpnext.com/download). If you need support, you can first go through [the ERPNext user guide](https://erpnext.com/user-guide) and then ask [questions at the forum](/getting-help). If you need priority one-on-one help sessions, you can also buy a subscription service for it.
+You do not need to pay for self implmenetation, you can either use the 30-day trial at [erpnext.com](https://erpnext.com) or use the [Virtual Machine](https://erpnext.com/download). If you need support, you can first go through [the ERPNext user guide](https://manual.erpnext.com) and then ask [questions at the forum](https://discuss.erpnext.com). If you need priority one-on-one help sessions, you can also buy a subscription service for it.
 
 ---
 
@@ -30,9 +30,11 @@ To implement ERPNext, you must have a general understanding of financial accouti
 
 #### 5. Do I need to pay anything to start selling ERPNext
 
-No! This is an open source application and it does not require you to pay us anything. You can charge the customer whatever you like for implementation, training, customization and support. You can either host the customer yourself or host it at [erpnext.com](https://erpnext.com). There is a one time 30% commission on each customer you sign-up at [erpnext.com](https://erpnext.com) after your first one.
+No. This is an open source application and it does not require you to pay us anything. You can charge the customer whatever you like for implementation, training, customization and support.
 
 If your customer wants production support on their servers, you can do it yourself, or let us do it by helping the customer by commercial support.
+
+Do not forget to list yourself as a service provider on the [community portal](/service-providers)
 
 ---
 
@@ -83,8 +85,10 @@ Yes, we are in the process of generalizing our tools that we use to power erpnex
 
 #### 11. I want to sell ERPNext in my brand name, will you do that?
 
-Ofcourse Not! ERPNext is our brand and identity. All work we do will be under the brand name of ERPNext and Frappe. If you want to disguise this as your work, you are free to do it, but don't expect any help from us. If you are using our help documentation, you must attribute us publicly because the documentation is licenced as [Creative Commons BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/3.0/us/)
+ERPNext is our brand and identity. All work we do will be under the brand name of ERPNext and Frappe. If you want to disguise this as your work, you are free to do it, but don't expect any help from us. If you are using our help documentation, you must attribute us publicly because the documentation is licenced as [Creative Commons BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 
 ---
 
-Still have questions? [Ask them at the partner forum](https://groups.google.com/forum/?hl=en#!forum/erpnext-partners-forum).
+Still have questions? [Ask them at the forum](https://discuss.erpnext.com).
+
+[Have you listed yourself as a service provider yet?](/service-providers)
