@@ -1,0 +1,2 @@
+community_erpnext_com.config.desktop
+community_erpnext_com.config

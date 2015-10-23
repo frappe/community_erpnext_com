@@ -1,0 +1,4 @@
+community_erpnext_com.www.apps
+community_erpnext_com.www
+community_erpnext_com.www.jobs
+community_erpnext_com.www.service_providers

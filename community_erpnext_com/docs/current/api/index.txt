@@ -1,0 +1,3 @@
+community_erpnext_com.__init__
+community_erpnext_com.hooks
+community_erpnext_com.migrate

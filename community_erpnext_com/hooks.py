@@ -1,12 +1,16 @@
 app_name = "community_erpnext_com"
 app_title = "ERPNext Community Portal"
+app_headline = "Connects Service Seekers and Providers"
 app_publisher = "Frappe Technologies Pvt. Ltd."
-app_description = "community.erpnext.com"
+app_description = "ERPNext Community Portal allows users to post jobs, find service providers and post jobs"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
+app_license = "MIT"
 app_email = "info@frappe.io"
 app_version = "0.0.1"
 hide_in_installer = True
+source_link = "https://github.com/frappe/community_erpnext_com"
+docs_base_url = "https://frappe.github.io/community_erpnext_com"
 
 # Includes in <head>
 # ------------------

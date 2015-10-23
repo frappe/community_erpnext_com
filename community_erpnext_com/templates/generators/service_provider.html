@@ -10,6 +10,12 @@
 			{%- endif %}
 			<p><span class="label label-default">{{ country }}</span></p>
 			<p>{{ partner_type(doc) }}</p>
+            {% if doc.partner_category=="Unverfied" %}
+            <p class="text-muted">
+                Note: This partner is not verfied, so please check the partner's
+                capabilities before assigning any job.
+            </p>
+            {% endif %}
 			<address>
 				{% if partner_website -%}<p><a href="{{ partner_website }}"
 					target="_blank">{{ partner_website }}</a></p>{%- endif %}
