@@ -4,18 +4,13 @@
 	<div class="row">
 		<div class="col-md-4">
 			{% if logo -%}
+			<br><br>
 			<img itemprop="brand" src="{{ logo }}" class="partner-logo no-shadow"
-				alt="{{ partner_name }}" title="{{ partner_name }}" />
+				alt="{{ partner_name }}" title="{{ partner_name }}" style="max-width: 120px;"/>
 			<br><br>
 			{%- endif %}
 			<p><span class="label label-default">{{ country }}</span></p>
 			<p>{{ partner_type(doc) }}</p>
-            {% if doc.partner_category=="Unverfied" %}
-            <p class="text-muted">
-                Note: This partner is not verfied, so please check the partner's
-                capabilities before assigning any job.
-            </p>
-            {% endif %}
 			<address>
 				{% if partner_website -%}<p><a href="{{ partner_website }}"
 					target="_blank">{{ partner_website }}</a></p>{%- endif %}
@@ -29,8 +24,14 @@
 			<div class="clearfix">
 				{{ stars(doc) }}
 			</div>
+            {% if doc.partner_category=="Unverfied" %}
+            <p class="text-muted">
+                Note: This partner is not verfied, so please check the partner's
+                capabilities before assigning any job.
+            </p>
+            {% endif %}
             <br>
-			<div>{{ introduction[:300] }}</div>
+			<div>{{ introduction[:300]|markdown }}</div>
 			<hr>
 			<h4>Completed Jobs</h4>
 			{% if jobs %}
@@ -51,7 +52,7 @@
 			{% endif %}
 			<hr>
 			<p><h4>Capabilities</h4></p>
-			<p>{{ description }}</p>
+			<p>{{ description|markdown }}</p>
 		</div>
 	</div>
 </div>
