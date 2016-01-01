@@ -1,4 +1,6 @@
-{% block content %}
+{% extends "templates/web.html" %}
+
+{% block page_content %}
 {% if frappe.user != "Guest" -%}
 <div>
 	{% if bid and owner != frappe.user %}

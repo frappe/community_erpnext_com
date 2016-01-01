@@ -1,4 +1,6 @@
-{% block content %}
+{% extends "templates/web.html" %}
+
+{% block page_content %}
 {%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
 <div class="partner-content" itemscope itemtype="http://schema.org/Organization">
 	<div class="row">

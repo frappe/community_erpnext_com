@@ -1,5 +1,7 @@
+{% extends "templates/web.html" %}
+
 {% block title %}Bid{% endblock %}
-{% block content %}
+{% block page_content %}
 {% if frappe.user in (owner, job.owner) and status in ("Accepted", "Open") %}
 <div >
 	{% if job.owner == frappe.user and status=="Open" %}
