@@ -1,4 +1,6 @@
-{% block content %}
+{% extends "templates/web.html" %}
+
+{% block page_content %}
 {% if frappe.user != "Guest" -%}
 <div>
 	{% if bid and owner != frappe.user %}
@@ -7,7 +9,7 @@
 	{% elif owner == frappe.user and status == "Open" %}
 	<a class="btn btn-default" href="#manage">
 		Manage Bids</a>
-	<a class="btn btn-default" href="post-jobs?name={{ name }}" style="margin-left: 10px;">
+	<a class="btn btn-default" href="/post-jobs?name={{ name }}" style="margin-left: 10px;">
 		Edit Job</a>
 	<a class="btn btn-default btn-action" style="margin-left: 10px;"
 		data-action="delete">

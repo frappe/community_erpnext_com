@@ -1,6 +1,9 @@
+{% extends "templates/web.html" %}
+
 {% block header %}{{ title }}{% endblock %}
 
 {% block style %}
+<style>
 .testimonial-avatar {
 	background-size: cover;
 	background-position: center center;
@@ -12,9 +15,10 @@
 	display: inline-block;
 	margin-top: -0.2em;
 }
+</style>
 {% endblock %}
 
-{% block content %}
+{% block page_content %}
 <div class="row" style="margin-bottom: 15px;">
 	<div class="col-md-12">
 		<div class="pull-left">

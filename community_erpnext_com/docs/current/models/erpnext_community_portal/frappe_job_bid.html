@@ -1,0 +1,318 @@
+<!-- title: Frappe Job Bid -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version 0.0.0</a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/community_erpnext_com/tree/v0.0.1/community_erpnext_com/erpnext_community_portal/doctype/frappe_job_bid"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+    <p><b>Table Name:</b> <code>tabFrappe Job Bid</code></p>
+
+
+
+
+<h3>Fields</h3>
+
+<table class="table table-bordered" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr >
+            <td>1</td>
+            <td ><code>status</code></td>
+            <td >
+                Select</td>
+            <td >
+                Status
+                
+            </td>
+            <td>
+                <pre>Open
+Withdrawn
+Expired
+Completed
+Accepted
+Lost</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>frappe_partner</code></td>
+            <td >
+                Link</td>
+            <td >
+                Frappe Partner
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/community_erpnext_com/current/models/erpnext_community_portal/frappe_partner">Frappe Partner</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>frappe_job</code></td>
+            <td >
+                Link</td>
+            <td >
+                Frappe Job
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/community_erpnext_com/current/models/erpnext_community_portal/frappe_job">Frappe Job</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>frappe_job_title</code></td>
+            <td >
+                Read Only</td>
+            <td >
+                Frappe Job Title
+                
+            </td>
+            <td>
+                <pre>frappe_job.job_title</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>frappe_partner_title</code></td>
+            <td >
+                Read Only</td>
+            <td >
+                Frappe Partner Title
+                
+            </td>
+            <td>
+                <pre>frappe_partner.partner_name</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>6</td>
+            <td ><code>page_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                page_name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>parent_website_route</code></td>
+            <td >
+                Data</td>
+            <td >
+                parent_website_route
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>8</td>
+            <td ><code>rating</code></td>
+            <td >
+                Int</td>
+            <td >
+                Rating
+                
+            </td>
+            <td></td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>FrappeJobBid</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.website.website_generator.WebsiteGenerator</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="after_insert" href="#after_insert" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>after_insert</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="before_insert" href="#before_insert" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>before_insert</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="get_context" href="#get_context" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>get_context</b>
+        <i class="text-muted">(self, context)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="get_parents" href="#get_parents" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>get_parents</b>
+        <i class="text-muted">(self, context)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="on_trash" href="#on_trash" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>on_trash</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="onload" href="#onload" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>onload</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.accept</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.accept" href="#community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.accept" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.<b>accept</b>
+        <i class="text-muted">(bid)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.delete</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.delete" href="#community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.delete" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		community_erpnext_com.erpnext_community_portal.doctype.frappe_job_bid.frappe_job_bid.<b>delete</b>
+        <i class="text-muted">(bid)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+	
+
+
+    
+    
+
+
+<!-- jinja --><!-- static -->
