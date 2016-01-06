@@ -6,6 +6,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.website.website_generator import WebsiteGenerator
+from frappe.utils import cint
 
 class FrappePartner(WebsiteGenerator):
 	website = frappe._dict(
@@ -19,10 +20,22 @@ class FrappePartner(WebsiteGenerator):
 		self.show_in_website = 1
 
 	def validate(self):
-		self.priority = {
-			"Development Partner": 3,
-			"Implementation Partner": 2
-		}.get(self.partner_category) or 1
+		self.priority = 0
+		if self.partner_category=="VIP":
+			self.priority += 10
+
+		if self.partner_category=="Verified":
+			self.priority += 5
+
+		if self.community_members:
+			self.priority += len(self.community_members.split(","))
+
+		if self.github_id:
+			self.priority += 3
+
+		self.priority += cint(self.completed_jobs)
+		self.priority += cint(self.average_rating)
+		self.priority += self.bonus
 
 		if len(self.introduction or "") > 300:
 			self.introduction = self.introduction[:297] + "..."
@@ -44,11 +57,7 @@ class FrappePartner(WebsiteGenerator):
 				and bid.frappe_job = job.name
 			order by job.creation desc limit 20""", self.owner, as_dict=True)
 
-		context.parents = self.get_parents(context)
-
-	def get_parents(self, context):
-		return [{"title":"Community", "name": "community"},
-			{"title":"Service Providers", "name": "community/service-providers"}]
+		context.parents = [{"title": "Service Providers", "name": "service-providers"}]
 
 def get_list_item(doc):
 	return frappe.get_template("erpnext_community_portal/doctype/frappe_partner/list_item.html").render(doc)

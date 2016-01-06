@@ -1,2 +1,3 @@
 execute:frappe.db.sql("update `tabFrappe Job` set parent_website_route='jobs'")
 execute:frappe.db.sql("update `tabFrappe Partner` set parent_website_route='service-providers'")
+community_erpnext_com.patches.set_priority

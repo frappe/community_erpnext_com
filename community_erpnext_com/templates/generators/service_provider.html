@@ -1,8 +1,18 @@
 {% extends "templates/web.html" %}
 
+{% block header %}
+<h2>{{ doc.partner_name }}</h2>
+<p><a class="text-muted small no-decoration" href="/service-providers">
+    <span class="icon icon-angle-left"></span> All Service Providers</a></p>
+{% endblock %}
+
+{% block breadcrumbs %}
+{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
+
 {% block page_content %}
 {%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
-<div class="partner-content" itemscope itemtype="http://schema.org/Organization">
+<div class="partner-content" itemscope itemtype="http://schema.org/Organization" style="margin-top: 30px;">
 	<div class="row">
 		<div class="col-md-4">
 			{% if logo -%}
@@ -21,40 +31,80 @@
 				{% if email -%}<p itemprop="email"><span class="icon-envelope"></span> {{ email }}</p>{%- endif %}
 			</address>
 			<!-- <p>{{ service_cloud(doc) }}</p> -->
+            {% if not has_erpnext_website %}
+            <p class="alert alert-warning small">This service provider's website does not state that they provide ERPNext services</p>
+            {% endif %}
 		</div>
 		<div class="col-md-8">
-			<div class="clearfix">
-				{{ stars(doc) }}
-			</div>
-            {% if doc.partner_category=="Unverfied" %}
-            <p class="text-muted">
-                Note: This partner is not verfied, so please check the partner's
-                capabilities before assigning any job.
-            </p>
+            <h4>Community Profile</h4>
+            <div style="margin-bottom: 30px;">
+            {% if doc.community_members %}
+                ERPNext Forum:
+                {% for member in doc.community_members.split(",") %}
+                <a style="margin-right: 10px;"
+                    href="https://discuss.erpnext.com/users/{{ member.strip() }}/activity" target="_blank">{{ member }}</a>
+                {% endfor %}
+            {% else %}
+            <p class='alert alert-warning small'>This service provider has no known community members</p>
             {% endif %}
-            <br>
-			<div>{{ introduction[:300]|markdown }}</div>
-			<hr>
-			<h4>Completed Jobs</h4>
-			{% if jobs %}
-				<ul class="list-group">
-				{% for job in jobs %}
-				<li class="list-group-item">
-					<div>
-						<a href="/jobs/{{ job.page_name }}">
-							{{ job.job_title }}</a>
-					</div>
-					<div class="text-muted small">
-						{{ frappe.format_date(job.creation) }}</div>
-				</li>
-				{% endfor %}
-				</ul>
-			{% else %}
-			<p class="text-muted">No Jobs Completed on the Community Portal</p>
-			{% endif %}
-			<hr>
-			<p><h4>Capabilities</h4></p>
-			<p>{{ description|markdown }}</p>
+            {% if doc.github_id %}
+            <p>
+                Developer Profile:
+                <a href="{{ doc.github_id }}" target="_blank">{{ doc.github_id }}</a></p>
+            {% endif %}
+            {% if doc.frappe_comment %}
+            <p class="text-muted"><i>"{{ doc.frappe_comment }}"</i></p>
+            <div class="text-muted small text-right">ERPNext Team</div>
+            {% endif %}
+            </div>
+            <h4>Status</h4>
+            <div style="margin-bottom: 30px;">
+            {% if doc.partner_category=="Unverified" %}
+                <div class="alert alert-warning small">
+                    This service provider is not verfied by ERPNext
+                </div>
+            {% elif doc.partner_category=="VIP" %}
+                <div class="alert alert-success small">
+                    This service provider is an ERPNext VIP!
+                </div>
+            {% elif doc.partner_category=="Verified" %}
+                <div class="alert alert-success small">
+                    This service provider is a verified by ERPNext
+                </div>
+            {% endif %}
+            </div>
+            <div style="margin-bottom: 30px;">
+                <h4>About</h4>
+    			<div>{{ introduction[:300]|markdown }}</div>
+            </div>
+            <div style="margin-bottom: 30px;">
+    			<h4>Completed Jobs</h4>
+    			<div class="clearfix">
+    				{{ stars(doc) }}
+    			</div>
+    			{% if jobs %}
+    				<ul class="list-group">
+    				{% for job in jobs %}
+    				<li class="list-group-item">
+    					<div>
+    						<a href="/jobs/{{ job.page_name }}">
+    							{{ job.job_title }}</a>
+    					</div>
+    					<div class="text-muted small">
+    						{{ frappe.format_date(job.creation) }}</div>
+    				</li>
+    				{% endfor %}
+    				</ul>
+    			{% else %}
+    			<p class="text-muted">No Jobs Completed on the Community Portal</p>
+    			{% endif %}
+            </div>
+            <div style="margin-bottom: 30px;">
+    			<h4>Details</h4>
+    			<p>{{ description|markdown }}</p>
+            </div>
+            <hr>
+            <p class="text-muted">If you have any feedback about this service provider, please email us at hello@erpnext.com</p>
 		</div>
 	</div>
 </div>

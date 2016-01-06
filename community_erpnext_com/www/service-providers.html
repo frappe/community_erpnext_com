@@ -1,18 +1,7 @@
 {% include "templates/includes/select_header.html" %}
 {%- from "templates/includes/community_macros.html" import service_cloud, partner_type, stars -%}
 <div>
-    {% if not frappe.form_dict.country %}
-    <h4>Select Country</h4>
-    <div class="countries row">
-        {% for country in countries %}
-        <div class="col-md-4 col-sm-6">
-            <a href="/service-providers?country={{ country }}">{{ country }}</a>
-        </div>
-        {% endfor %}
-    </div>
-    <hr>
-    {% endif %}
-	{% if not partners %}
+	{% if not partners and frappe.form_dict.country %}
 	<p class="text-muted">
 		No Service Providers found for the matching criteria.
     </p>
@@ -28,25 +17,44 @@
 			{%- endif %}
 		</div>
 		<div class="col-md-9">
-			{{ stars(p) }}
 			<a class="no-decoration" href="/service-providers/{{ p.page_name }}">
 				<h4>{{ p.partner_name }}</h4>
 			</a>
 			<p><span class="label label-default">{{ p.country }}</span></p>
 			<p>{{ partner_type(p) }}</p>
 			<p>{{ p.introduction }}</p>
-			<!-- <p>{{ service_cloud(p) }}</p> -->
 		</div>
 	</div>
 	<hr>
 	{% endfor %}
 </div>
+{% if all_partners %}
 <div class="row">
-	<div class="col-md-9 col-md-offset-3">
+    <div class="col-sm-12">
+        <h2>All Service Providers</h2>
+    </div>
+    {% for p in all_partners %}
+    <div class="col-sm-4" style="height: 90px;">
+        <p>
+            {% if p.partner_category != "Unverified" %}
+            <label class="label label-{{ "warning" if p.partner_category=="Verified" else "success" }}" style="margin-right: 5px; display: inline-block">
+                {{ p.partner_category }}</label>
+            {% endif %}
+            <a href="/service-providers/{{ p.page_name }}">
+                {{ p.partner_name }}</a>
+            <br><a class="text-muted small no-decoration" href="?country={{ p.country }}">{{ p.country }}</a></span>
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="row">
+	<div class="col-md-12 text-center">
 		{% if partners|len==50 -%}
 			<p class="text-muted">Use filters to see more service providers</p>
 		{%- endif %}
 
+        <div style="margin-top: 50px;">
         <p>
             <a href="/become-a-partner" class="btn btn-primary" style="margin-top: 10px;">
 				Register as a Service Provider</a>
@@ -54,6 +62,7 @@
         {% if not frappe.form_dict.country %}
         <p><a href="https://frappe.io/about#contact" target="_blank">
             Become a verified service provider</a></p>
+        </div>
     <p>
     {% endif %}
 	 </div>
