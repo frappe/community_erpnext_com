@@ -33,6 +33,9 @@ class FrappePartner(WebsiteGenerator):
 		if self.github_id:
 			self.priority += 3
 
+		if self.has_erpnext_website:
+			self.priority += 3
+
 		self.priority += cint(self.completed_jobs)
 		self.priority += cint(self.average_rating)
 		self.priority += self.bonus
