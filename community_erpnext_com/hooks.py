@@ -55,12 +55,12 @@ website_generators = ["Frappe Partner", "Frappe Job", "Frappe Job Bid"]
 fixtures = [
 	"Contact Us Settings",
 	"Frappe Publisher",
-	"Web Form"
+	"Web Form",
+	"Email Alert"
 ]
 
 scheduler_events = {
-	"daily": ["community_erpnext_com.erpnext_community_portal.doctype.frappe_job.frappe_job.expire_jobs"],
-	"weekly": ["community_erpnext_com.erpnext_community_portal.doctype.frappe_job.frappe_job.weekly_digest"]
+	"daily": ["community_erpnext_com.api.expire_jobs"]
 }
 
 # website user home page (by Role)

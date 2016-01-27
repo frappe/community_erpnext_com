@@ -7,6 +7,7 @@ from frappe.website.website_generator import WebsiteGenerator
 from frappe.utils.user import get_fullname_and_avatar
 from frappe.website.utils import get_comment_list
 from frappe import _
+from markdown2 import markdown
 
 class FrappeJob(WebsiteGenerator):
 	website = frappe._dict(
@@ -81,6 +82,20 @@ class FrappeJob(WebsiteGenerator):
 		for bid in self.get_all_bids():
 			frappe.delete_doc("Frappe Job Bid", bid.name)
 
+	def after_insert(self):
+		all_providers = frappe.get_all("Frappe Partner", fields=["email"], filters={"show_in_website": 1})
+		params = self.as_dict()
+		params['job_detail'] = markdown(params['job_detail'])
+		frappe.sendmail(
+			subject = "New Job " + self.job_title,
+			sender = "info@erpnext.com",
+			recipients = [p.email for p in all_providers] + ["info@erpnext.com"],
+			content = new_job_template.format(**params),
+			as_bulk = True,
+			reference_doctype = self.doctype,
+			reference_name = self.name
+		)
+
 @frappe.whitelist()
 def bid(job):
 	partner = frappe.db.get_value("Frappe Partner", {"owner": frappe.session.user})
@@ -128,14 +143,6 @@ def close(job):
 	job.status = "Withdrawn"
 	job.save(ignore_permissions=True)
 
-def expire_jobs():
-	for job in frappe.db.sql_list("""select name from `tabFrappe Job`
-		where datediff(curdate(), creation) > 30 and status='Open'"""):
-		print job
-		job = frappe.get_doc("Frappe Job", job)
-		job.status = "Expired"
-		job.save(ignore_permissions=True)
-
 def weekly_digest():
 	new_jobs = frappe.db.sql("""select job_title, page_name, job_detail, company_name
 		from `tabFrappe Job` where datediff(curdate(), creation) < 7""", as_dict=True)
@@ -169,3 +176,12 @@ def weekly_digest():
 
 	frappe.sendmail(recipients = recipients, subject="New Jobs This Week on Frappe.io",
 		message = frappe.render_template(template, {"jobs": new_jobs}), bulk=True)
+
+new_job_template = '''
+<h3>{job_title}</h3>
+<p>By {company_name}, {country}</p>
+<hr>
+<div>{job_detail}</div>
+<hr>
+<p>This is an automatic notification from the Frappe Job Portal</p>
+'''

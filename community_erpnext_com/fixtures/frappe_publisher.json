@@ -1,13 +1,24 @@
 [
  {
-  "description": "Frapp\u00e9 Technologies Pvt. Ltd.",
-  "docstatus": 0,
-  "doctype": "Frappe Publisher",
-  "location": "Mumbai",
-  "modified": "2015-03-16 13:23:16.164460",
-  "name": "Frapp\u00e9",
-  "page_name": null,
-  "publisher_logo": null,
+  "description": "Web Notes Technologies Pvt. Ltd.", 
+  "docstatus": 0, 
+  "doctype": "Frappe Publisher", 
+  "location": "Mumbai", 
+  "modified": "2015-03-17 09:37:40.334252", 
+  "name": "Web Notes", 
+  "page_name": null, 
+  "publisher_logo": null, 
+  "publisher_name": "Web Notes"
+ }, 
+ {
+  "description": "Frapp\u00e9 Technologies Pvt. Ltd.", 
+  "docstatus": 0, 
+  "doctype": "Frappe Publisher", 
+  "location": "Mumbai", 
+  "modified": "2015-03-16 13:23:16.164460", 
+  "name": "Frapp\u00e9", 
+  "page_name": null, 
+  "publisher_logo": null, 
   "publisher_name": "Frapp\u00e9"
  }
 ]
