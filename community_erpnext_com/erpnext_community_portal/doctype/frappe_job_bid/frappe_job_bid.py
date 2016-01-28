@@ -35,7 +35,7 @@ class FrappeJobBid(WebsiteGenerator):
 	def after_insert(self):
 		frappe.sendmail(
 			recipients=[frappe.db.get_value("Frappe Job", self.frappe_job, "owner")],
-			subject="New Bid for your Job {0}".format(self.name),
+			subject="New Bid for your Job {0}".format(self.frappe_job_title),
 			message=new_bid_template.format(**self.as_dict()), bulk=True)
 
 	def get_context(self, context):
@@ -84,7 +84,7 @@ def delete(bid):
 
 new_bid_template = """
 <h3>Notification from Frappe.io Community Portal</h3>
-<p>{frappe_partner} has bid for your job {frappe_job}</p>
+<p>{frappe_partner_title} has bid for your job {frappe_job_title}</p>
 <p><a href="https://frappe.io/community/jobs/{frappe_job}">
 	Click here to manage bids</a></p>
 """
