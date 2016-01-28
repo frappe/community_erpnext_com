@@ -33,7 +33,9 @@ class FrappeJobBid(WebsiteGenerator):
 			"partner_name")
 
 	def after_insert(self):
-		frappe.sendmail(recipients=[self.owner], subject="New Bid for your Job {0}".format(self.name),
+		frappe.sendmail(
+			recipients=[frappe.db.get_value("Frappe Job", self.frappe_job, "owner")],
+			subject="New Bid for your Job {0}".format(self.name),
 			message=new_bid_template.format(**self.as_dict()), bulk=True)
 
 	def get_context(self, context):
