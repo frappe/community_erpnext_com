@@ -38,7 +38,7 @@ class FrappePartner(WebsiteGenerator):
 
 		self.priority += cint(self.completed_jobs)
 		self.priority += cint(self.average_rating)
-		self.priority += self.bonus
+		self.priority += cint(self.bonus)
 
 		if len(self.introduction or "") > 300:
 			self.introduction = self.introduction[:297] + "..."
