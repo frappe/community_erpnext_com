@@ -9,8 +9,8 @@
   "document_type": "Frappe Partner", 
   "enabled": 1, 
   "event": "New", 
-  "message": "New Service Provider Registered", 
-  "modified": "2016-01-27 14:53:01.384179", 
+  "message": "<h3>{{ doc.partner_name }}</h3>\n\n</p>{{ doc.introduction }}</p>\n\n<p><a href=\"https://community.erpnext.com/service-providers/{{ doc.page_name }}\">View Listing</a></p>\n", 
+  "modified": "2016-02-05 09:14:00.671814", 
   "name": "7aac89f491", 
   "recipients": [
    {
@@ -19,7 +19,7 @@
     "email_by_document_field": "owner"
    }
   ], 
-  "subject": "New Service Provider Listed", 
+  "subject": "New Service Provider: {{ doc.partner_name }}", 
   "value_changed": null
  }
 ]
