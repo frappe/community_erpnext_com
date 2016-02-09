@@ -182,8 +182,8 @@ new_job_template = '''
 <p>By {company_name}, {country}</p>
 <hr>
 	<div>
-		<a href="https://frappe.io/community/jobs/{ page_name }">
-			{ job_title }
+		<a href="https://frappe.io/community/jobs/{page_name}">
+			{job_title}
 		</a>
 	{job_detail}
 	</div>
