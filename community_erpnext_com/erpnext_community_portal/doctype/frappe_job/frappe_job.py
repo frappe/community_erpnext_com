@@ -88,7 +88,7 @@ class FrappeJob(WebsiteGenerator):
 		params['job_detail'] = markdown(params['job_detail'])
 		frappe.sendmail(
 			subject = "New Job " + self.job_title,
-			sender = "info@erpnext.com",
+			sender = "noreply@erpnext.com",
 			recipients = [p.email for p in all_providers] + ["info@erpnext.com"],
 			content = new_job_template.format(**params),
 			as_bulk = True,
@@ -181,7 +181,12 @@ new_job_template = '''
 <h3>{job_title}</h3>
 <p>By {company_name}, {country}</p>
 <hr>
-<div>{job_detail}</div>
+	<div>
+		<a href="https://frappe.io/community/jobs/{ job_title }">
+			{ job_title }
+		</a>
+	{job_detail}
+	</div>
 <hr>
-<p>This is an automatic notification from the Frappe Job Portal</p>
+<p>Please do not reply to this mail. This is an automatic notification from the Frappe Job Portal.</p>
 '''
