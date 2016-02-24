@@ -6,8 +6,8 @@ import frappe
 from frappe.website.website_generator import WebsiteGenerator
 from frappe.utils.user import get_fullname_and_avatar
 from frappe.website.utils import get_comment_list
+from frappe.utils import markdown
 from frappe import _
-from markdown2 import markdown
 
 class FrappeJob(WebsiteGenerator):
 	website = frappe._dict(
