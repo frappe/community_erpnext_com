@@ -85,6 +85,6 @@ def delete(bid):
 new_bid_template = """
 <h3>Notification from Frappe.io Community Portal</h3>
 <p>{frappe_partner_title} has bid for your job {frappe_job_title}</p>
-<p><a href="https://frappe.io/community/jobs/{frappe_job}">
+<p><a href="https://community.erpnext.com/jobs/{frappe_job}">
 	Click here to manage bids</a></p>
 """
