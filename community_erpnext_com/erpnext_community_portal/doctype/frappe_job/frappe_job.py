@@ -161,7 +161,7 @@ def weekly_digest():
 		{% for j in jobs %}
 		<tr>
 			<td style="width: 50%">
-				<a href="https://frappe.io/community/jobs/{{ j.page_name }}">
+				<a href="https://community.erpnext.com/jobs/{{ j.page_name }}">
 					{{ j.job_title }}</a>
 				<br><span style="color: #888">{{ j.company_name }}</span>
 			</td>
@@ -182,7 +182,7 @@ new_job_template = '''
 <p>By {company_name}, {country}</p>
 <hr>
 	<div>
-		<a href="https://frappe.io/community/jobs/{page_name}">
+		<a href="https://community.erpnext.com/jobs/{page_name}">
 			{job_title}
 		</a>
 	{job_detail}
