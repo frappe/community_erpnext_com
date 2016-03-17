@@ -23,11 +23,11 @@
 <br>
 <div class="row">
 	<div class="col-sm-4 text-right">Job</div>
-	<div class="col-sm-8"><a href="{{ job.get_route() }}">{{ job.job_title }}</a></div>
+	<div class="col-sm-8"><a href="/{{ job.get_route() }}">{{ job.job_title }}</a></div>
 </div>
 <div class="row">
 	<div class="col-sm-4 text-right">Bidder</div>
-	<div class="col-sm-8"><a href="{{ partner.get_route() }}">{{ partner.partner_name }}</a></div>
+	<div class="col-sm-8"><a href="/{{ partner.get_route() }}">{{ partner.partner_name }}</a></div>
 </div>
 <br>
 <div class="row">
