@@ -33,12 +33,12 @@ website_context = {
 	"favicon": "/assets/frappe_theme/img/favicon.ico"
 }
 
-my_account_context = [
-	{"label": "My Bids", "url": "/jobs?jobs=my-bids"},
-	{"label": "Jobs by me", "url": "/jobs?jobs=my-jobs"},
-	{"label": "Edit Service Provider Listing", "url": "/become-a-partner"},
-	{"label": "Edit Jobs", "url": "/post-jobs"},
-	{"label": "Become a Verified Service Provider", "url": "https://about.frappe.io#contact", "target": "_blank"}
+portal_menu_items = [
+	{"title": "My Bids", "route": "/jobs?jobs=my-bids"},
+	{"title": "Jobs by me", "route": "/jobs?jobs=my-jobs"},
+	{"title": "Edit Service Provider Listing", "route": "/become-a-partner"},
+	{"title": "Edit Jobs", "route": "/post-jobs"},
+	{"title": "Become a Verified Service Provider", "route": "https://frappe.io/about#contact", "target": "_blank"}
 ]
 
 # Home Pages
