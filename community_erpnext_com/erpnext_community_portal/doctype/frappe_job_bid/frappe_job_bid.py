@@ -36,7 +36,7 @@ class FrappeJobBid(WebsiteGenerator):
 		frappe.sendmail(
 			recipients=[frappe.db.get_value("Frappe Job", self.frappe_job, "owner")],
 			subject="New Bid for your Job {0}".format(self.frappe_job_title),
-			message=new_bid_template.format(**self.as_dict()), bulk=True)
+			message=new_bid_template.format(**self.as_dict()))
 
 	def get_context(self, context):
 		context.job = frappe.get_doc("Frappe Job", self.frappe_job)
@@ -46,7 +46,7 @@ class FrappeJobBid(WebsiteGenerator):
 	def get_parents(self, context):
 		return [{"title":"Community", "name": "community"},
 			{"title":"Jobs", "name": "community/jobs"},
-			{"title": context.job.job_title, "name": context.job.get_route() }]
+			{"title": context.job.job_title, "name": context.job.route }]
 
 
 	def on_trash(self):

@@ -11,5 +11,5 @@ def migrate():
 	remote.migrate_doctype("Frappe Job Bid")
 	frappe.flags.mute_emails = False
 
-	frappe.db.sql("update `tabFrappe Job` set parent_website_route='jobs'")
-	frappe.db.sql("update `tabFrappe Partner` set parent_website_route='service-providers'")
+	frappe.db.sql("update `tabFrappe Job` set route='jobs'")
+	frappe.db.sql("update `tabFrappe Partner` set route='service-providers'")

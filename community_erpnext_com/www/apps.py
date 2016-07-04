@@ -9,6 +9,6 @@ def get_context(context):
 		filters.application_name = ("like", "%{0}%".format(frappe.form_dict.application_name))
 
 	context.apps = frappe.get_all("Frappe App", filters=filters,
-		fields=["application_name", "introduction", "headline", "publisher", "page_name",
+		fields=["application_name", "introduction", "headline", "publisher", "route",
 			"icon"], limit_page_length=50)
 	context.categories = frappe.get_meta("Frappe App").get_field("application_category").options.split("\n")

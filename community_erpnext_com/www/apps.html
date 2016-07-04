@@ -23,11 +23,11 @@
 	{% for app in apps %}
 	<div class="media">
 		<a class="pull-left"
-			href="/apps/{{ app.page_name }}">
+			href="{{ app.route }}">
 			<img class="media-object app-icon" src="{{ app.icon }}">
 		</a>
 		<div class="media-body">
-			<a href="/apps/{{ app.page_name }}">
+			<a href="{{ app.route }}">
 			<h4 class="media-heading">{{ app.application_name }}</h4>
 		</a>
 		<p>{{ app.introduction }}</p>

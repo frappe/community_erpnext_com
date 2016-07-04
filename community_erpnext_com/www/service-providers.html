@@ -10,14 +10,14 @@
 	<div class="row partner-row">
 		<div class="col-md-3">
 			{% if p.logo -%}
-			<a class="no-decoration" href="/service-providers/{{ p.page_name }}">
+			<a class="no-decoration" href="{{ p.route }}">
 				<img itemprop="brand" src="{{ p.logo }}" class="partner-logo no-shadow"
 					alt="{{ p.partner_name }}" title="{{ p.partner_name }}" style="max-width: 80%" />
 			</a>
 			{%- endif %}
 		</div>
 		<div class="col-md-9">
-			<a class="no-decoration" href="/service-providers/{{ p.page_name }}">
+			<a class="no-decoration" href="{{ p.route }}">
 				<h4>{{ p.partner_name }}</h4>
 			</a>
 			<p><span class="label label-default">{{ p.country }}</span></p>
@@ -38,7 +38,7 @@
             <label class="label label-{{ "warning" if p.partner_category=="Verified" else "success" }}" style="margin-right: 5px; display: inline-block">
                 {{ p.partner_category }}</label>
             {% endif %}
-            <a href="/service-providers/{{ p.page_name }}">
+            <a href="{{ p.route }}">
                 {{ p.partner_name }}</a>
             <br><a class="text-muted small no-decoration" href="?country={{ p.country }}">{{ p.country }}</a></span>
         </p>

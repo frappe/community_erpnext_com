@@ -3,14 +3,14 @@
 <div class="row partner-row">
 	<div class="col-md-3">
 		{% if logo -%}
-		<a class="no-decoration" href="/partners/{{ page_name }}">
+		<a class="no-decoration" href="{{ route }}">
 			<img itemprop="brand" src="{{ logo }}" class="partner-logo no-shadow"
 				alt="{{ partner_name }}" title="{{ partner_name }}" />
 		</a>
 		{%- endif %}
 	</div>
 	<div class="col-md-9">
-		<a class="no-decoration" href="/partners/{{ page_name }}">
+		<a class="no-decoration" href="{{ route }}">
 			<h4>{{ partner_name }}</h4>
 		</a>
 		<p><span class="label label-default">{{ country }}</span></p>

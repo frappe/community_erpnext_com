@@ -72,7 +72,7 @@ class FrappeJob(WebsiteGenerator):
 		if self.frappe_partner:
 			context.frappe_partner_name, context.frappe_partner_route = \
 				frappe.db.get_value("Frappe Partner",
-					self.frappe_partner, ["partner_name", "page_name"])
+					self.frappe_partner, ["partner_name", "route"])
 
 	def get_parents(self, context):
 		return [{"title":"Community", "name": "community"},
@@ -91,7 +91,7 @@ class FrappeJob(WebsiteGenerator):
 			sender = "noreply@erpnext.com",
 			recipients = [p.email for p in all_providers] + ["info@erpnext.com"],
 			content = new_job_template.format(**params),
-			as_bulk = True,
+			delayed = True,
 			reference_doctype = self.doctype,
 			reference_name = self.name
 		)
@@ -144,7 +144,7 @@ def close(job):
 	job.save(ignore_permissions=True)
 
 def weekly_digest():
-	new_jobs = frappe.db.sql("""select job_title, page_name, job_detail, company_name
+	new_jobs = frappe.db.sql("""select job_title, route, job_detail, company_name
 		from `tabFrappe Job` where datediff(curdate(), creation) < 7""", as_dict=True)
 
 	if not new_jobs:
@@ -161,7 +161,7 @@ def weekly_digest():
 		{% for j in jobs %}
 		<tr>
 			<td style="width: 50%">
-				<a href="https://community.erpnext.com/jobs/{{ j.page_name }}">
+				<a href="https://community.erpnext.com/{{ j.route }}">
 					{{ j.job_title }}</a>
 				<br><span style="color: #888">{{ j.company_name }}</span>
 			</td>
@@ -175,14 +175,14 @@ def weekly_digest():
 """
 
 	frappe.sendmail(recipients = recipients, subject="New Jobs This Week on Frappe.io",
-		message = frappe.render_template(template, {"jobs": new_jobs}), bulk=True)
+		message = frappe.render_template(template, {"jobs": new_jobs}))
 
 new_job_template = '''
 <h3>{job_title}</h3>
 <p>By {company_name}, {country}</p>
 <hr>
 	<div>
-		<a href="https://community.erpnext.com/jobs/{page_name}">
+		<a href="https://community.erpnext.com/{route}">
 			{job_title}
 		</a>
 	{job_detail}

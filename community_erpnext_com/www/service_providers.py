@@ -22,7 +22,7 @@ def get_context(context):
 	else:
 		title = "ERPNext Service Providers"
 		context.all_partners = frappe.db.sql("""select
-			name, partner_name, page_name, country, partner_category
+			name, partner_name, route, country, partner_category
 			from `tabFrappe Partner`
 			where show_in_website = 1
 			order by priority desc, name asc""", as_dict=1)
