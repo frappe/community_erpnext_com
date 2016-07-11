@@ -3,7 +3,7 @@
 <div class="row partner-header">
 	<div class="col-sm-4">
 		{{ make_select(css_class="filter",
-            options=[{"label":"Global"}] + country_list,
+            options=[{"label":"Global", "value": ""}] + country_list,
             attributes={"data-key": "country"},
             value=frappe.form_dict.country) }}
 	</div>

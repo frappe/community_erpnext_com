@@ -23,6 +23,8 @@ class FrappeJob(WebsiteGenerator):
 		else:
 			self.show_in_website = 0
 
+		self.route = 'jobs/' + self.name
+
 		if self.status != "Open":
 			self.docstatus = 1
 			all_bids = self.get_all_bids()

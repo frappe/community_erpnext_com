@@ -21,6 +21,10 @@ class FrappePartner(WebsiteGenerator):
 
 	def validate(self):
 		self.priority = 0
+
+		if not self.route:
+			self.route = 'service-providers/' + self.route
+
 		if self.partner_category=="VIP":
 			self.priority += 10
 
