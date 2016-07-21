@@ -23,7 +23,7 @@ class FrappePartner(WebsiteGenerator):
 		self.priority = 0
 
 		if not self.route:
-			self.route = 'service-providers/' + self.route
+			self.route = 'service-providers/' + self.scrub(self.partner_name)
 
 		if self.partner_category=="VIP":
 			self.priority += 10
