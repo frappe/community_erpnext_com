@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 import frappe
 import frappe.website.render
 
+no_cache = 1
+
 def get_context(context):
 	frappe_job = frappe.get_meta("Frappe Job")
 	condition, values, my_bids = "", [], []
