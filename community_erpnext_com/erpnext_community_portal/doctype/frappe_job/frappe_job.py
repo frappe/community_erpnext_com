@@ -97,6 +97,9 @@ class FrappeJob(WebsiteGenerator):
 			reference_doctype = self.doctype,
 			reference_name = self.name
 		)
+	
+	def get_route(self):
+		return frappe.db.get_value("Frappe Job", self.name, "route")
 
 @frappe.whitelist()
 def bid(job):

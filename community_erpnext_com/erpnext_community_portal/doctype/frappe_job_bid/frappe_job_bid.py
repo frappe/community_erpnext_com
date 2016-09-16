@@ -52,8 +52,10 @@ class FrappeJobBid(WebsiteGenerator):
 	def on_trash(self):
 		if self.status == "Accepted":
 			frappe.throw(_("Accepted bid cannot be deleted"))
-
-
+	
+	def make_route(self):
+		return 'bid/' + self.scrub(self.name)
+	
 @frappe.whitelist()
 def accept(bid):
 	bid = frappe.get_doc("Frappe Job Bid", bid)
