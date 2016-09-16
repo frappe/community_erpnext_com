@@ -65,6 +65,9 @@ class FrappePartner(WebsiteGenerator):
 			order by job.creation desc limit 20""", self.owner, as_dict=True)
 
 		context.parents = [{"title": "Service Providers", "name": "service-providers"}]
+	
+	def get_route(self):
+		return frappe.db.get_value("Frappe Partner", self.name, "route")
 
 def get_list_item(doc):
 	return frappe.get_template("erpnext_community_portal/doctype/frappe_partner/list_item.html").render(doc)
