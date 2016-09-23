@@ -28,6 +28,7 @@ website_context = {
 	"top_bar_items": [
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
+		{"label": "Applications", "url":"/apps", "right": 1},
 		{"label": "Terms", "url":"/terms", "right": 1}
 	],
 	"favicon": "/assets/frappe_theme/img/favicon.ico"
@@ -50,7 +51,7 @@ home_page = "index"
 web_include_css = "/assets/frappe/css/hljs.css"
 web_include_js = "/assets/frappe/js/lib/highlight.pack.js"
 
-website_generators = ["Frappe Partner", "Frappe Job", "Frappe Job Bid"]
+website_generators = ["Frappe Partner", "Frappe Job", "Frappe Job Bid", "Frappe App"]
 
 fixtures = [
 	"Contact Us Settings",

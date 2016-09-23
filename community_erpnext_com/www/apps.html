@@ -4,12 +4,12 @@
 	<div class="col-md-4">
 		{{ make_select(css_class="filter",
 			options=[{"label":"All Categories", "value":""}] + categories,
-			attributes={"data-key": "application_category"}
+			attributes={"data-key": "category"}
 		) }}
 	</div>
 	<div class="col-md-4">
 		<input type="text" placeholder="Search" class="form-control filter"
-			data-key="application_name">
+			data-key="app_name">
 	</div>
 </div>
 {% if frappe.form_dict %}
@@ -24,14 +24,26 @@
 	<div class="media">
 		<a class="pull-left"
 			href="{{ app.route }}">
-			<img class="media-object app-icon" src="{{ app.icon }}">
+			<div class='app-icon'>
+				{% if app.category == "Domains" %}
+				<span class="octicon octicon-repo"></span>
+				{% elif app.category == "Integrations" %}
+				<span class="octicon octicon-plug"></span>
+				{% elif app.category == "Developer Tools" %}
+				<span class="octicon octicon-tools"></span>
+				{% else %}
+				<span class="octicon octicon-beaker"></span>
+				{% endif %}
+			</div>
 		</a>
 		<div class="media-body">
 			<a href="{{ app.route }}">
-			<h4 class="media-heading">{{ app.application_name }}</h4>
-		</a>
-		<p>{{ app.introduction }}</p>
-		<p class="text-muted">Publisher: {{ app.publisher }}</p>
+				<h4 class="media-heading">{{ app.title }}</h4>
+				<span class="label label-{{ "warning" if app.badge=="Official" else "primary" }} pull-right" style='margin-top: 10px;'>{{ app.badge }}</span>
+			</a>
+			
+			<p class="text-muted"> Application Name: {{ app.app_name }}</p>
+			<p class="text-muted"> Description: {{ app.description }}</p>
 		</div>
 	</div>
 	<hr>
