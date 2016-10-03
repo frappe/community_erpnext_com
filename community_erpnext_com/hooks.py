@@ -28,7 +28,7 @@ website_context = {
 	"top_bar_items": [
 		{"label": "Jobs", "url":"/jobs", "right": 1},
 		{"label": "Service Providers", "url":"/service-providers", "right": 1},
-		{"label": "Applications", "url":"/apps", "right": 1},
+		{"label": "Apps", "url":"/apps", "right": 1},
 		{"label": "Terms", "url":"/terms", "right": 1}
 	],
 	"favicon": "/assets/frappe_theme/img/favicon.ico"
@@ -61,7 +61,10 @@ fixtures = [
 ]
 
 scheduler_events = {
-	"daily": ["community_erpnext_com.api.expire_jobs"]
+	"daily": [
+		"community_erpnext_com.api.expire_jobs",
+		"community_erpnext_com.erpnext_community_portal.doctype.frappe_app.frappe_app.set_repo_details"
+	],
 }
 
 # website user home page (by Role)

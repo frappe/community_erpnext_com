@@ -1,4 +1,7 @@
 {% from "templates/includes/form_macros.html" import make_select %}
+<div class="hero-content text-center" style="margin-bottom: 40px; font-size: 20px;">
+    <h1>Apps built on Frappé Framework</h1>
+</div>
 
 <div class="row">
 	<div class="col-md-4">
@@ -38,7 +41,7 @@
 		</a>
 		<div class="media-body">
 			<a href="{{ app.route }}">
-				<h4 class="media-heading">{{ app.title }}</h4>
+				<h4 class="media-heading">{{ app.app_name }}</h4>
 				<span class="label label-{{ "warning" if app.badge=="Official" else "primary" }} pull-right" style='margin-top: 10px;'>{{ app.badge }}</span>
 			</a>
 			
