@@ -1,0 +1,58 @@
+{% extends "templates/web.html" %}
+
+{% block header %}
+<h2>{{ doc.app_name }}</h2>
+<p><a class="text-muted small no-decoration" href="/apps">
+    <span class="icon icon-angle-left"></span> All Frappe Applications</a></p>
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
+
+{% block page_content %}
+<div class="partner-content">
+	<div class="row">
+		<div class="col-md-4">
+			<div class='app-icon'>
+				{% if doc.category == "Domains" %}
+				<span class="octicon octicon-repo"> {{ doc.category }} </span>
+				{% elif doc.category == "Integrations" %}
+				<span class="octicon octicon-plug"> {{ doc.category }} </span>
+				{% elif doc.category == "Developer Tools" %}
+				<span class="octicon octicon-tools"> {{ doc.category }} </span>
+				{% else %}
+				<span class="octicon octicon-beaker"> {{ doc.category }} </span>
+				{% endif %}
+			</div>
+			<br>
+			<div>
+				<span class="label label-{{ "warning" if doc.badge=="Official" else "primary" }} " style='margin-top: 10px;'>{{ doc.badge }}</span>
+			</div>
+			<br>
+			<div>
+				<span class="octicon octicon-octoface"></span>
+				<a herf="{{doc.repository_url}}"  style="font-size: 13px;" target="_blank"> {{doc.repository_url}} </a>
+			</div>
+			<br>
+			<div>
+				<span class="octicon octicon-star"></span> {{stargazers_count or 0}}
+			</div>
+			<div>
+				<span class="octicon octicon-database"></span> {{repo_size or 0}} MB
+			</div>
+			<div>
+				<span class="octicon octicon-issue-opened"></span> {{open_issues or 0}}
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div style="width:100%;">
+				<h4>Description:</h4>
+				<div class="text-muted"> {{ doc.description }} </div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+{% endblock %}

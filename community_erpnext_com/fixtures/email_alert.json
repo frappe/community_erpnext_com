@@ -10,7 +10,7 @@
   "enabled": 1, 
   "event": "New", 
   "message": "<h3>{{ doc.partner_name }}</h3>\n\n<p></p>{{ doc.introduction }}<p></p>\n\n<p><a href=\"https://community.erpnext.com/service-providers/{{ doc.page_name }}\">View Listing</a></p>\n", 
-  "modified": "2016-09-14 16:58:00.822645", 
+  "modified": "2016-02-05 09:14:00.671814", 
   "name": "New Service Provider: {{ doc.partner_name }}", 
   "recipients": [
    {
