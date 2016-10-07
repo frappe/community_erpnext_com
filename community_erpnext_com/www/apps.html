@@ -39,14 +39,14 @@
 				{% endif %}
 			</div>
 		</a>
-		<div class="media-body">
+		<div class="media-body" style="color:#000000;">
 			<a href="{{ app.route }}">
 				<h4 class="media-heading">{{ app.app_name }}</h4>
 				<span class="label label-{{ "warning" if app.badge=="Official" else "primary" }} pull-right" style='margin-top: 10px;'>{{ app.badge }}</span>
 			</a>
 			
-			<p class="text-muted"> Application Name: {{ app.app_name }}</p>
-			<p class="text-muted"> Description: {{ app.description }}</p>
+			<p> Application Name: {{ app.app_name }}</p>
+			<p> Description: {{ app.description }}</p>
 		</div>
 	</div>
 	<hr>

@@ -17,13 +17,13 @@
 		<div class="col-md-4">
 			<div class='app-icon'>
 				{% if doc.category == "Domains" %}
-				<span class="octicon octicon-repo"> {{ doc.category }} </span>
+				<span class="octicon octicon-repo"></span> {{ doc.category }}
 				{% elif doc.category == "Integrations" %}
-				<span class="octicon octicon-plug"> {{ doc.category }} </span>
+				<span class="octicon octicon-plug"></span>  {{ doc.category }}
 				{% elif doc.category == "Developer Tools" %}
-				<span class="octicon octicon-tools"> {{ doc.category }} </span>
+				<span class="octicon octicon-tools"></span>  {{ doc.category }}
 				{% else %}
-				<span class="octicon octicon-beaker"> {{ doc.category }} </span>
+				<span class="octicon octicon-beaker"></span> {{ doc.category }}
 				{% endif %}
 			</div>
 			<br>
@@ -31,25 +31,27 @@
 				<span class="label label-{{ "warning" if doc.badge=="Official" else "primary" }} " style='margin-top: 10px;'>{{ doc.badge }}</span>
 			</div>
 			<br>
-			<div>
-				<span class="octicon octicon-octoface"></span>
-				<a herf="{{doc.repository_url}}"  style="font-size: 13px;" target="_blank"> {{doc.repository_url}} </a>
-			</div>
-			<br>
-			<div>
+			<div data-toggle="tooltip" data-placement="top" title="Git Stargazers Count">
 				<span class="octicon octicon-star"></span> {{stargazers_count or 0}}
 			</div>
-			<div>
+			<br>
+			<div data-toggle="tooltip" data-placement="top" title="Git Repo Size">
 				<span class="octicon octicon-database"></span> {{repo_size or 0}} MB
 			</div>
-			<div>
+			<br>
+			<div data-toggle="tooltip" data-placement="top" title="Git Open Issues Count">
 				<span class="octicon octicon-issue-opened"></span> {{open_issues or 0}}
 			</div>
 		</div>
 		<div class="col-md-8">
 			<div style="width:100%;">
+				<span class="octicon octicon-octoface"></span>
+				<a herf="{{doc.repository_url}}"  style="margin-left:10px;" target="_blank"> {{doc.repository_url}} </a>
+			</div>
+			<hr>
+			<div style="width:100%;color:#000000;">
 				<h4>Description:</h4>
-				<div class="text-muted"> {{ doc.description }} </div>
+				<div> {{ doc.description }} </div>
 			</div>
 		
 		</div>
