@@ -57,7 +57,11 @@ class FrappeJob(WebsiteGenerator):
 		return frappe.get_all("Frappe Job Bid", filters={"frappe_job": self.name})
 
 	def get_context(self, context):
-		context.update(get_fullname_and_avatar(self.owner))
+		user_details = get_fullname_and_avatar(self.owner)
+		if user_details.get("name"):
+			del user_details['name']
+
+		context.update(user_details)
 		context.comment_list = get_comment_list(self.doctype, self.name)
 		if frappe.session.user == self.owner:
 			context.bids = frappe.get_all("Frappe Job Bid",
